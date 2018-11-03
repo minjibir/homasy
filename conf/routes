@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Serve index page from public directory
+GET     /                           controllers.FrontendController.index()
+
+
+GET           /api/patients/:id              controllers.PatientController.getPatientById(id: Long)
+GET           /api/patients                  controllers.PatientController.getAllPatients
+POST          /api/patients                  controllers.PatientController.registerPatient
+PUT           /api/patients                  controllers.PatientController.updatePatient
+DELETE        /api/patients/:id              controllers.PatientController.deletePatient(id: Long)
+
+GET           /api/appointments/:id          controllers.AppointmentController.getAppointmentById(id: Long)
+GET           /api/appointments              controllers.AppointmentController.getAllAppointments
+POST          /api/appointments              controllers.AppointmentController.makeAppointment
+PUT           /api/appointments              controllers.AppointmentController.updateAppointment
+DELETE        /api/appointments/:id          controllers.AppointmentController.deleteAppointment(id: Long)
+
+GET           /api/consultations/:pId        controllers.ConsultationController.getAllConsultationByPatientId(pId: String)
+POST          /api/consultations             controllers.ConsultationController.saveConsultation
+PUT           /api/consultations             controllers.ConsultationController.updateConsultation
+
+
+# Serve static assets under public directory
+GET     /*file                      controllers.FrontendController.assetOrDefault(file)
