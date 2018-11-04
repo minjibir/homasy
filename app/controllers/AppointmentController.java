@@ -7,6 +7,8 @@ import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.util.UUID;
+
 import models.Appointment;
 import play.mvc.Results;
 
@@ -17,26 +19,18 @@ public class AppointmentController extends Controller {
         JsonNode jsonNode = request().body().asJson();
         Appointment iAppointment;
 
-        System.out.println(Json.toJson(jsonNode));
+        iAppointment = Json.fromJson(jsonNode, Appointment.class);
+        iAppointment.save();
 
-        try {
-            iAppointment = Json.fromJson(jsonNode, Appointment.class);
-            iAppointment.save();
-            return created(Json.toJson(iAppointment));
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return notFound("Not found.");
+        return created(Json.toJson("Created"));
     }
 
     public Result getAllAppointments() {
         return ok(Json.toJson(Appointment.find.all()));
     }
 
-    public Result getAppointmentById(long id) {
-        return ok(Json.toJson(Appointment.find.byId((id))));
+    public Result getAppointmentById(String id) {
+        return ok(Json.toJson(Appointment.find.byId(UUID.fromString(id))));
     }
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -54,12 +48,12 @@ public class AppointmentController extends Controller {
         return notFound(Json.toJson("Not found"));
     }
 
-    public Result deleteAppointment(long appointmentId) {
+    public Result deleteAppointment(String appointmentId) {
 
-        // if (Appointment.find.byId((appointmentId)).delete())
-        // return ok(Json.toJson("Deleted!"));
-        //
-        // return notFound(Json.toJson("Not found!"));
+//        if (Appointment.find.byId(UUID.fromString(appointmentId)).delete())
+//            return ok(Json.toJson("Deleted!"));
+//
+//        return notFound(Json.toJson("Not found!"));
         return Results.TODO;
     }
 }

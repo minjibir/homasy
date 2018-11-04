@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +6,6 @@ import { User } from './user';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  user: User
 
   constructor() { }
 

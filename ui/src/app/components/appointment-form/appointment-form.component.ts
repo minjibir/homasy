@@ -9,42 +9,33 @@ import { AppointmentService } from '../appointment/appointment.service';
 })
 export class AppointmentFormComponent implements OnInit {
 
-  appointment = new Appointment();
+  appointment: Appointment = new Appointment();
 
   patientId: string;
   appointmentDate: string;
   appointmentTime: string;
 
-  errorMsg = '';
-  successMsg = '';
+  errorMsg
+  successMsg
 
-  constructor(private appointmentService: AppointmentService) { }
+  constructor(private _appointmentService: AppointmentService) { }
 
   ngOnInit() {
   }
 
   addAppointment() {
-
-    if (
-      this.appointment.appointmentDate !== undefined &&
-      this.appointment.appointmentTime !== undefined &&
-      this.appointment.patientId !== null
-    ) {
-      console.log(this.appointment);
-      this.appointmentService
-        .addAppointment(this.appointment)
-        .subscribe(
-          (res: Appointment) => {
-            this.appointment = res
-            this.successMsg = "Appointment successfully booked."
-            console.log(this.successMsg)
-          },
-          err => {
-            console.log(err);
-            this.errorMsg = "Error occured.";
-          }
-        );
-    }
+    this._appointmentService
+      .addAppointment(this.appointment)
+      .subscribe(
+        (res: Appointment) => {
+          this.appointment = res
+          this.successMsg = "Appointment successfully booked."
+        },
+        err => {
+          console.log(err);
+          this.errorMsg = "Error occured.";
+        }
+      );
   }
 
 }

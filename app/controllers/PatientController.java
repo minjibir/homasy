@@ -7,8 +7,10 @@ import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import java.util.UUID;
+
 public class PatientController extends Controller {
-    public static Result deleteAppointment(long id) {
+    public static Result deleteAppointment(String id) {
         return play.mvc.Results.TODO;
     }
 
@@ -16,7 +18,7 @@ public class PatientController extends Controller {
     public Result registerPatient() {
         JsonNode jsonNode = request().body().asJson();
 
-        // System.out.println(Json.toJson(jsonNode));
+        System.out.println(Json.toJson(jsonNode));
 
         try {
             Patient patient = Json.fromJson(jsonNode, Patient.class);
@@ -27,11 +29,11 @@ public class PatientController extends Controller {
             e.printStackTrace();
         }
 
-        return notFound("Unsuccessful.");
+        return notFound("Not found.");
     }
 
-    public Result getPatientById(long patientUUID) {
-        Patient patient = Patient.find.byId(patientUUID);
+    public Result getPatientById(String patientUUID) {
+        Patient patient = Patient.find.byId(UUID.fromString(patientUUID));
         if (patient != null) return ok(Json.toJson(patient));
 
         return notFound("Not found");
@@ -45,7 +47,7 @@ public class PatientController extends Controller {
         return play.mvc.Results.TODO;
     }
 
-    public Result deletePatient(long id) {
+    public Result deletePatient(String id) {
         return play.mvc.Results.TODO;
     }
 }

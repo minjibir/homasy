@@ -8,20 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-;
+import java.util.UUID;
 
 @Entity
 @Table(name = "bills")
 public class Bill extends Model {
 
     @Id
-    public long billId;
+    public UUID billId;
 
     @NotNull
-    public long patientId;
+    public UUID patientId;
 
     @NotNull
-    public long receptionistId;
+    public UUID receptionistId;
 
     @NotNull
     public double amount;

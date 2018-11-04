@@ -28,17 +28,13 @@ export class ConsultationComponent implements OnInit {
   }
 
   submitConsultation() {
-    if (
-      this.consultation.diagnosis !== null &&
-      this.consultation.prescription !== null &&
-      this.consultation.statement !== null
-    ) {
+    if (this.consultation.patientId !== null) {
+      console.log(this.consultation);
       this.consultationService
         .saveConsultation(this.consultation)
         .subscribe(
           res => {
             this.result = 'Record successfully saved.';
-            console.log(res)
           },
           err => {
             this.result = 'Problem occured when saving record.'

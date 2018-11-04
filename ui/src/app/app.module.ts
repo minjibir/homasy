@@ -34,9 +34,30 @@ import { ConsultationComponent } from './components/consultation/consultation.co
 import { AccountantComponent } from './components/accountant/accountant.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
-import { PharmacyModule } from './pharmacy/pharmacy.module';
-import { LabModule } from './lab/lab.module';
-import { AdminComponent } from './components/admin/admin.component';
+
+
+// const routes: Routes = [
+//   {
+//     path: 'java',
+//     component: RouteExampleComponent,
+//     data: { technology: 'Java' }
+//   },
+//   {
+//     path: 'play',
+//     component: RouteExampleComponent,
+//     data: { technology: 'Play' }
+//   },
+//   {
+//     path: 'angular',
+//     component: RouteExampleComponent,
+//     data: { technology: 'Angular' }
+//   },
+//   {
+//     path: '**',
+//     redirectTo: '/play',
+//     pathMatch: 'full'
+//   }
+// ];
 
 @NgModule({
   declarations: [
@@ -60,7 +81,6 @@ import { AdminComponent } from './components/admin/admin.component';
     AccountantComponent,
     PageNotFoundComponent,
     DoctorComponent,
-    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,14 +88,12 @@ import { AdminComponent } from './components/admin/admin.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    EntranceModule,
-    AppRoutingModule,
+    EntranceModule,AppRoutingModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'Csrf-Token',
       headerName: 'Csrf-Token',
     }),
-    LabModule,
-    PharmacyModule
+    
   ],
   providers: [
     AppService,

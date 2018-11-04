@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Appointment } from './appointment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 
-const url = '/api/appointments'
+const url = 'http://localhost:9000/appointments'
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +12,11 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) { }
 
-  addAppointment(appointment: Appointment): Observable<Appointment> {
+  addAppointment(appointment: Appointment) {
     return this.http.post<Appointment>(url, appointment)
   }
 
-  getAppointments(): Observable<Appointment> {
-    return this.http.get<Appointment>(url)
+  getAppointments() {
+    return this.http.get<Appointment[]>(url)
   }
 }

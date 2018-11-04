@@ -1,0 +1,13 @@
+export class Prescription {
+    // This (Consultation ID)can be used to find
+    // Prescription ID,
+    // Appointment ID,
+    // Patient ID,
+    // Doctor ID,
+    public consultationId: number;
+    public prescriptionId: number;
+    
+    public prescriptionContent: string;
+    public prescriptionStatus?: boolean;
+    public prescriptionDateTime?: string;
+}

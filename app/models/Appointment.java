@@ -6,33 +6,29 @@ import io.ebean.annotation.WhenCreated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "appointments")
 public class Appointment extends Model {
 
     @Id
-    public long appointmentId;
+    public UUID appointmentId;
 
     @NotNull
-    public long patientId;
+    public UUID patientId;
 
-    public long doctorId;
+    public UUID doctorId;
 
-    public long receptionistId;
-
-    @NotNull
-    public LocalDate appointmentDate;
+    public UUID receptionistId;
 
     @NotNull
-    public LocalTime appointmentTime;
+    public LocalDateTime appointmentDateTime;
 
     @NotNull
     @WhenCreated
     public LocalDateTime timeOfAppointment;
 
-    public static Finder find = new Finder<Long, Appointment>(Appointment.class);
+    public static Finder find = new Finder<UUID, Appointment>(Appointment.class);
 }

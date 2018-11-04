@@ -10,7 +10,7 @@ import { Appointment } from './appointment';
 })
 export class AppointmentComponent implements OnInit {
 
-  appointments: any;
+  appointment = new Appointment();
   result: any;
 
   constructor(
@@ -23,7 +23,7 @@ export class AppointmentComponent implements OnInit {
     .getAppointments()
     .subscribe(
       res => {
-        this.appointments = res;
+        this.result = 'Appointment successfully booked.';
       },
       err => {
         console.log(err)

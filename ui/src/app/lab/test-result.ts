@@ -1,4 +1,12 @@
-export class Test {
+export class TestResult {
+
+    // This is the ID number of the test request by the doctors.
+    public testId: number;
+
+    // ID number of the person who record the result.
+    // which should be retrieved from the login infor (token).
+    public labTechnicianId: number;
+
     public hppsresult?: string;
     public bloodgroupresult?: string;
     public fastingbloodsugarresult?: string;

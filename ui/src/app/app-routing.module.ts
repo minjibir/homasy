@@ -11,21 +11,13 @@ import { BillComponent } from './components/bill/bill.component';
 import { AccountantComponent } from './components/accountant/accountant.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
-import { LabComponent } from './lab/lab/lab.component';
-import { PharmacyComponent } from './pharmacy/pharmacy/pharmacy.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { LabMainComponent } from './lab/lab-main/lab-main.component';
-import { LabResultComponent } from './lab/lab-result/lab-result.component';
-import { LabResultEntryComponent } from './lab/lab-result-entry/lab-result-entry.component';
 
 const routes: Routes = [
   { path: '', component: EntranceComponent },
-  { path: 'login', component: LoginComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
     children: [
-      { path: 'admin', component: AdminComponent },
       { path: 'appointments', component: AppointmentComponent },
       { path: 'addappointment', component: AppointmentFormComponent },
 
@@ -35,22 +27,6 @@ const routes: Routes = [
       { path: 'consultation', component: ConsultationComponent },
       { path: 'billing', component: BillComponent },
       { path: 'accounting', component: AccountantComponent },
-    ]
-  },
-  {
-    path: 'lab',
-    component: LabComponent,
-    children: [
-      {path: '', component: LabMainComponent},
-      {path: 'result', component: LabResultComponent},
-      {path: 'resultentry', component: LabResultEntryComponent}
-    ]
-  },
-  {
-    path: 'pharmacy',
-    component: PharmacyComponent,
-    children: [
-
     ]
   },
   { path: 'login', component: LoginComponent },

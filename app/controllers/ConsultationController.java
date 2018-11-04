@@ -6,6 +6,9 @@ import play.libs.Json;
 import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
+
+import java.util.UUID;
+
 import models.Consultation;
 
 public class ConsultationController extends Controller {
@@ -13,12 +16,15 @@ public class ConsultationController extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public Result saveConsultation() {
         JsonNode jsonNode = request().body().asJson();
-        Consultation iConsultation;
 
-        iConsultation = Json.fromJson(jsonNode, Consultation.class);
-        iConsultation.save();
+        System.out.println(Json.toJson(jsonNode));
 
-        return created(Json.toJson(iConsultation));
+//        Consultation iConsultation;
+//
+//        iConsultation = Json.fromJson(jsonNode, Consultation.class);
+//        iConsultation.save();
+
+        return created(Json.toJson("Created"));
     }
 
     public Result getAllConsultationByPatientId(String patientId) {
@@ -26,7 +32,7 @@ public class ConsultationController extends Controller {
     }
 
     public Result getConsultationByConIdAndPatId(String conId, String patId) {
-        return ok(Json.toJson(Consultation.find.byId((conId))));
+        return ok(Json.toJson(Consultation.find.byId(UUID.fromString(conId))));
     }
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -44,10 +50,10 @@ public class ConsultationController extends Controller {
         return notFound(Json.toJson("Not found"));
     }
 
-    // public Result deleteConsultation(long id) {
-    // if (Consultation.find.byId((id)).delete())
-    // return ok(Json.toJson("Deleted!"));
-    //
-    // return notFound(Json.toJson("Not found!"));
-    // }
+//    public Result deleteConsultation(String id) {
+//        if (Consultation.find.byId(UUID.fromString(id)).delete())
+//            return ok(Json.toJson("Deleted!"));
+//
+//        return notFound(Json.toJson("Not found!"));
+//    }
 }

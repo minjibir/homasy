@@ -8,13 +8,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.UUID;
 
 @Entity
 @Table(name = "patients")
 public class Patient extends Model {
 
     @Id
-    public long patientId;
+    public UUID patientId;
 
     @NotNull
     public String firstName;
@@ -36,6 +37,6 @@ public class Patient extends Model {
     @NotNull
     public String maritalStatus;
 
-    public static Finder<Long, Patient> find = new Finder<>(Patient.class);
+    public static Finder<UUID, Patient> find = new Finder<>(Patient.class);
 
 }

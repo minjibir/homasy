@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LabResultService } from '../lab-result.service';
+import { TestService } from '../test.service';
 
 @Component({
-  selector: 'app-lab-result',
-  templateUrl: './lab-result.component.html',
-  styleUrls: ['./lab-result.component.scss']
+  selector: 'app-test-result',
+  templateUrl: './test-result.component.html',
+  styleUrls: ['./test-result.component.scss']
 })
-export class LabResultComponent implements OnInit {
+export class TestResultComponent implements OnInit {
 
   tests: any;
 
   constructor(
     private router: Router,
-    private labResultService: LabResultService
+    private labResultService: TestService
   ) { }
 
   ngOnInit() {

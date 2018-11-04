@@ -7,22 +7,23 @@ import io.ebean.annotation.WhenCreated;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "sessions")
 public class Consultation extends Model {
 
     @Id
-    public long consultationId;
+    public UUID consultationId;
 
     //@NotNull
-    public long appointmentId;
+    public UUID appointmentId;
 
-    // @NotNull
-    public long patientId;
+    @NotNull
+    public UUID patientId;
 
     //@NotNull
-    public long doctorId;
+    public UUID doctorId;
 
     @NotNull
     public String statement; // This is the patient statement about what is bothering him.
@@ -39,5 +40,5 @@ public class Consultation extends Model {
     @WhenCreated
     public LocalDateTime sessionDateTime;
 
-    public static Finder find = new Finder<Long, Consultation>(Consultation.class);
+    public static Finder find = new Finder<UUID, Consultation>(Consultation.class);
 }

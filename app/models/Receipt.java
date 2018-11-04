@@ -8,14 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-;
+import java.util.UUID;
 
 @Entity
 @Table(name = "receipts")
 public class Receipt extends Model {
 
     @Id
-    public long receiptId;
+    public UUID receiptId;
 
     @NotNull
     public String paymentMethod;
