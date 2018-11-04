@@ -4,28 +4,28 @@
 
       <h4 class="text-center mb-5">NEW APPOINTMENT</h4>
 
-      <div *ngIf="errorMsg" class="invalid-feedback text-center">
+      <div class="invalid-feedback text-center">
         <p class=" text-warning">{{errorMsg}}</p>
       </div>
 
-      <div *ngIf="successMsg" class="valid-feedback text-center">
+      <div class="valid-feedback text-center">
         <p class=" text-success">{{successMsg}}</p>
       </div>
 
       <form class="form">
         <div class="form-group mb-5">
           <label for="patientId">Patient ID</label>
-          <input type="text" class="form-control" [(ngModel)]="appointment.patientId" name="patientId" id="patientId">
+          <input type="text" class="form-control" [(ngModel)]="appointment.patientId" name="patientId" id="patientId" required>
         </div>
 
         <div class="form-group mb-5">
           <label for="appointmentDate">Appointment Date</label>
-          <input type="date" class="form-control" [(ngModel)]="appointment.appointmentDateTime" name="appointmentDate" id="appointmentDate">
+          <input type="date" class="form-control" [(ngModel)]="appointment.appointmentDate" name="appointmentDate" id="appointmentDate" required>
         </div>
 
         <div class="form-group mb-5">
           <label for="appointmentTime">Appointment Time</label>
-          <input type="time" class="form-control" name="appointmentTime" id="appointmentTime">
+          <input type="time" class="form-control" [(ngModel)]="appointment.appointmentTime" name="appointmentTime" id="appointmentTime" required>
         </div>
 
         <button class="btn btn-primary px-5" (click)="addAppointment()">Schedule</button>

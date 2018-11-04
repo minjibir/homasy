@@ -17,7 +17,7 @@
           <div class="col-md-4 mb-3">
             <label for="firstName">First name</label>
             <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="patient.firstName" placeholder="First name" required>
-            <div *ngIf="invalid" class="valid-feedback">
+            <div class="valid-feedback">
               Looks good!
             </div>
           </div>
@@ -25,7 +25,7 @@
           <div class="col-md-4 mb-3">
             <label for="middleName">Middle name</label>
             <input type="text" class="form-control" name="middleName" id="middleName" [(ngModel)]="patient.middleName" placeholder="Middle name">
-            <div *ngIf="valid" class="valid-feedback">
+            <div class="valid-feedback">
               Looks good!
             </div>
           </div>
@@ -33,7 +33,7 @@
           <div class="col-md-4 mb-3">
             <label for="lastName">Last name</label>
             <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="patient.lastName" placeholder="Last name" required>
-            <div *ngIf="valid" class="valid-feedback">
+            <div class="valid-feedback">
               Looks good!
             </div>
           </div>
@@ -53,7 +53,7 @@
           <div class="col-md-6 mb-3">
             <label for="gender">Gender</label>
             <input type="text" class="form-control" name="gender" id="gender" [(ngModel)]="patient.gender" placeholder="Gender">
-            <div *ngIf="valid" class="valid-feedback">
+            <div class="valid-feedback">
               Looks good!
             </div>
           </div>
@@ -76,7 +76,7 @@
           <div class="col-md-6 mb-3">
             <label for="age">Age</label>
             <input type="number" class="form-control" name="age" id="age" [(ngModel)]="patient.age" placeholder="Age" required>
-            <div *ngIf="invalid" class="valid-feedback">
+            <div class="valid-feedback">
               Looks good!
             </div>
           </div>
@@ -84,7 +84,7 @@
           <div class="col-md-6 mb-3">
             <label for="height">Height (CM)</label>
             <input type="number" class="form-control" name="height" id="height" [(ngModel)]="patient.height" placeholder="Height" required>
-            <div *ngIf="valid" class="valid-feedback">
+            <div class="valid-feedback">
               Looks good!
             </div>
           </div>

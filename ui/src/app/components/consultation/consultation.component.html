@@ -11,33 +11,30 @@
   <form class="card bg-light shadow p-5 border border-secondary">
     <div class="form-row">
       <div class="col-md-6">
-        <h4 class=" text-center text-primary mb-5 ">
-          Diagnosis
-        </h4>
-        <div class="form-group mb-4 ">
-          <label class="label " for="statement ">Patient Statement</label>
-          <textarea class="form-control " rows="5" [(ngModel)]="consultation.statement" name="statement " id="statement " placeholder="What did the patient say?" required></textarea>
+        <div class="form-group mb-4">
+          <label class="h4 text-center text-primary" for="statement">Patient Statement</label>
+          <textarea class="form-control " rows="5" [(ngModel)]="consultation.statement" name="statement " id="statement " placeholder="What did the patient say?"
+            required></textarea>
         </div>
 
         <div class="form-group mb-4 ">
-          <label class="label " for="diagnosis ">Findings</label>
-          <textarea class="form-control " rows="5" [(ngModel)]="consultation.diagnosis" name="diagnosis" id="diagnosis " placeholder="What did you conclude as a doctor?" required></textarea>
+          <label class="h4 text-center text-primary" for="diagnosis">Diagnosis</label>
+          <textarea class="form-control " rows="5" [(ngModel)]="consultation.diagnosis" name="diagnosis" id="diagnosis " placeholder="What did you conclude as a doctor?"
+            required></textarea>
         </div>
       </div>
 
       <div class="col-md-6">
-        <h4 class="text-center text-primary mb-5 ">
-          Prescription
-        </h4>
-
         <div class="form-group mb-4 ">
-          <label class="label " for="testtypes ">Test</label>
-          <textarea rows="5" [(ngModel)]="consultation.testtypes" name="testtypes" id="testtypes " class="form-control " placeholder="Write all the required test seperated by comma if any."></textarea>
+          <label class="h4 text-center text-primary" for="testsRequested">Request Test</label>
+          <textarea rows="5" [(ngModel)]="testRequest.testsRequested" name="testsRequested" id="testsRequested" class="form-control"
+            placeholder="Write all the required test seperated by comma if any."></textarea>
         </div>
 
         <div class="form-group mb-4 ">
-          <label class="prescription " for="consultation.prescription ">Prescription</label>
-          <textarea type="text" class="form-control" rows="5" [(ngModel)]="prescription" name="prescription " id="prescription " placeholder="What do you prescribe?" required></textarea>
+          <label class="h4 text-center text-primary" for="prescriptionContent">Prescription</label>
+          <textarea type="text" class="form-control" rows="5" [(ngModel)]="prescription.prescriptionContent" name="prescriptionContent"
+            id="prescriptionContent" placeholder="What do you prescribe?" required></textarea>
         </div>
       </div>
     </div>

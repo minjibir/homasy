@@ -12,9 +12,12 @@ import { CHEMISTRY, MICROBIOLOGY, HAEMATOLOGY } from '../test-types';
 export class TestResultEntryComponent implements OnInit {
 
   testResult = new TestResult();
+
   chemistry = CHEMISTRY;
   microbiology = MICROBIOLOGY;
   haematology = HAEMATOLOGY;
+
+  labSelect: any;
 
   constructor(
     private router: Router,
@@ -35,6 +38,10 @@ export class TestResultEntryComponent implements OnInit {
           console.log(err);
         }
       );
+  }
+
+  addTest() {
+
   }
 
 }

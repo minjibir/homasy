@@ -1,4 +1,4 @@
-<h2>Test Result Entry</h2>
+<!-- <h2>Test Result Entry</h2>
 
 <form class="container" id="needs-validation mb-5" novalidate>
   <div class="container mb-5">
@@ -6,8 +6,9 @@
     <div class="row mt-5">
       <div class="col-md-4 mb-3 shadow-sm">
 
-        <select id="labSelect" name="labSelect" class="form-control mdb-select md-form colorful-select dropdown-primary bg-light"
-          multiple searchable="Search.." size=25 [(ngModel)]="selectedVal">
+        <select id="labSelect" name="selectedVal" class="form-control mdb-select md-form colorful-select dropdown-primary bg-light"
+          multiple searchable="Search.." size="25" [(ngModel)]="selectedVal">
+          
           <option value="" disabled selected>Select a Test (Hold control to select multiple)</option>
 
           <optgroup class="" label="CHEMISTRY">
@@ -21,17 +22,18 @@
           <optgroup label="HAEMATOLOGY">
             <option *ngFor="let haem of haematology" value={{haem.value}}> {{haem.viewValue}}</option>
           </optgroup>
+
         </select>
+
       </div>
 
       <div class="col-md-4 mb-3 shadow-sm">
         <textarea name="labResult" id="labResult" readonly disabled rows="20" cols="54"> {{ selectedVal }} 
         <br/>
         </textarea>
-        <button class="btn-save btn btn-primary btn-sm btn-block" (click)="">Save</button>
+        <button class="btn-save btn btn-primary btn-sm btn-block" (click)="addTest()">Save</button>
       </div>
     </div>
 
-
   </div>
-</form>
+</form> -->

@@ -12,11 +12,11 @@ export class PatientService {
 
   constructor(private http: HttpClient) { }
 
-  registerPatient(patient: Patient) {
-    return this.http.post<Patient>(url, patient);
+  getPatients(): Observable<Patient> {
+    return this.http.get<Patient>(url);
   }
 
-  getPatients(): Observable<any> {
-    return this.http.get(url);
+  registerPatient(patient: Patient): Observable<Patient> {
+    return this.http.post<Patient>(url, patient);
   }
 }

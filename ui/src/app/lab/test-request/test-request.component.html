@@ -10,9 +10,9 @@
 
   <div class="row py-3 mx-md-0">
     <form class="form-inline">
-      <input class="form-control mr-2" type="number" [(ngModel)]="patientId" name="patientId" id="patientId" placeholder="Patient's ID"
+      <!-- <input type="number" class="form-control mr-2" [(ngModel)]="patientId" name="patientId" id="patientId" placeholder="Patient's ID" -->
         aria-label="Search">
-      <button class="btn btn-outline-primary" type="submit" (clicke)="searchRequestByPatient()">Search</button>
+      <button class="btn btn-outline-primary" (click)="searchRequestByPatient()">Search</button>
     </form>
   </div>
 
@@ -32,8 +32,12 @@
         <td>{{testRequest.testsRequested}}</td>
         <td>{{testRequest.patientId}}</td>
         <td>{{testRequest.dateTimeRequested}}</td>
-        <td *ngIf="resultIsReady"><button class="btn btn-sm btn-outline-primary" (click)="provideResult(testRequest)">Provide Result</button></td>
-        <td *ngIf="!resultIsReady"><button class="btn btn-sm btn-outline-primary" (click)="viewTestResult(testRequest)">View Result</button></td>
+        <td *ngIf="resultIsReady"><button class="btn btn-sm btn-outline-primary" (click)="provideResult(testRequest)">Provide
+            Result
+          </button></td>
+        <td *ngIf="!resultIsReady"><button class="btn btn-sm btn-outline-primary" (click)="viewTestResult(testRequest)">View
+            Result
+          </button></td>
       </tr>
     </tbody>
   </table>

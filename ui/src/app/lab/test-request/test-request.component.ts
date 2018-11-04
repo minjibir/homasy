@@ -12,7 +12,7 @@ import { TestResult } from '../test-result';
 export class TestRequestComponent implements OnInit {
 
   testRequests: TestRequest[];
-  patientSearchId: number;
+  patientId: number;
   route: any;
 
   resultIsReady: boolean;
@@ -41,7 +41,7 @@ export class TestRequestComponent implements OnInit {
 
   searchRequestByPatient() {
     this.testService
-      .getTestRequestsByPatient(this.patientSearchId)
+      .getTestRequestsByPatient(this.patientId)
       .subscribe(
         (res: TestRequest[]) => {
           this.testRequests = res;

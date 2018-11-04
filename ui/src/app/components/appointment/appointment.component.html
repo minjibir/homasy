@@ -26,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let appointment of appointments">
         <td>{{appointment.appointmentId}}</td>
         <td>{{appointment.patientId}}</td>
         <td>{{appointment.appointmentDate}}</td>
