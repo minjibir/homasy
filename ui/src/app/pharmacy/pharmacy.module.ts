@@ -10,13 +10,15 @@ import { PrescriptionsComponent } from './prescriptions/prescriptions.component'
 import { PrescriptionsRecordComponent } from './prescriptions-record/prescriptions-record.component';
 import { AddDrugComponent } from './add-drug/add-drug.component';
 import { DrugListComponent } from './drug-list/drug-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   imports: [
     CommonModule,
-    PharmacyRoutingModule
+    PharmacyRoutingModule,
+    FormsModule
   ],
   declarations: [
     PharmacyComponent,

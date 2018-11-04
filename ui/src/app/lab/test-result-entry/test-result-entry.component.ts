@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TestService } from '../test.service';
 import { TestResult } from '../test-result';
 import { CHEMISTRY, MICROBIOLOGY, HAEMATOLOGY } from '../test-types';
@@ -11,37 +11,57 @@ import { CHEMISTRY, MICROBIOLOGY, HAEMATOLOGY } from '../test-types';
 })
 export class TestResultEntryComponent implements OnInit {
 
+  testResultId: number;
   testResult = new TestResult();
 
   chemistry = CHEMISTRY;
   microbiology = MICROBIOLOGY;
   haematology = HAEMATOLOGY;
 
-  labSelect: any;
+  labSelect: string[];
+  selectedVal: string[];
 
   constructor(
     private router: Router,
-    private TestService: TestService
+    private route: ActivatedRoute,
+    private testService: TestService
   ) { }
 
   ngOnInit() {
+    this.route.paramMap
+      .subscribe(
+        (params: ParamMap) => {
+          this.testResultId = parseInt(params.get('id'));
+          this.loadTestResultData();
+        }
+      );
+  }
+
+  loadTestResultData(): any {
+    this.testService
+      .getTestResultById(this.testResultId)
+      .subscribe(
+        (res: TestResult) => {
+          this.testResult = res;
+        },
+        err => {
+          console.log(err);
+        }
+      )
   }
 
   saveRecord() {
-    this.TestService
+    this.testService
       .recordResult(this.testResult)
       .subscribe(
         res => {
           this.testResult = res
+          this.router.navigate(['/lab']);
         },
         err => {
           console.log(err);
         }
       );
-  }
-
-  addTest() {
-
   }
 
 }

@@ -10,6 +10,7 @@ import { Prescription } from '../prescription';
 })
 export class PrescriptionsRecordComponent implements OnInit {
 
+  patientId: number;
   prescriptions: Prescription[];
 
   constructor(
@@ -19,6 +20,19 @@ export class PrescriptionsRecordComponent implements OnInit {
   ngOnInit() {
     this.prescriptionService
       .getPrescriptions()
+      .subscribe(
+        (res: Prescription[]) => {
+          this.prescriptions = res
+        },
+        err => {
+          console.log(err)
+        }
+      );
+  }
+
+  prescriptionsByPatient() {
+    this.prescriptionService
+      .getPrescriptionsByPatient(this.patientId)
       .subscribe(
         (res: Prescription[]) => {
           this.prescriptions = res

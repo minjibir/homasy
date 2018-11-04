@@ -19,7 +19,7 @@
     <thead>
       <tr>
         <th>Result ID</th>
-        <th>Result Name</th>
+        <th>Result</th>
         <th>Patient ID</th>
         <th>Date</th>
       </tr>
@@ -50,6 +50,9 @@
         <td>{{testResult.urinemcsresult}}</td>
         <td>{{testResult.vdrcresult}}</td>
         <td>{{testResult.widalresult}}</td>
+        <td *ngIf="!resultIsReady">
+          <button class="btn btn-sm btn-outline-primary" (click)="viewTestResult(testRequest)">View Result</button>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -8,7 +8,9 @@ export class TestRequest {
     public consultationId: number;
     public patientId: number;
     public doctorId: number;
+
     public testRequestId: number;
     public testsRequested: string;
+    public tested: boolean;
     public dateTimeRequested: string;
 }

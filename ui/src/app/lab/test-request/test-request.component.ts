@@ -35,8 +35,12 @@ export class TestRequestComponent implements OnInit {
       );
   }
 
-  provideResult(testRequest: TestRequest) {
-    this.router.navigate(['patient-details', { relative: '/' }])
+  // provideTestResult(testRequestId: number) {
+  //   this.router.navigate(['patient-details', testRequestId]);
+  // }
+
+  viewTestResult(testRequestId: number) {
+    this.router.navigate(['test-result-entry', testRequestId]);
   }
 
   searchRequestByPatient() {
@@ -48,20 +52,6 @@ export class TestRequestComponent implements OnInit {
         },
         err => {
           console.log(err)
-        }
-      );
-  }
-
-  viewTestResult(testResultId: number) {
-    this.testService
-      .getTestResultById(testResultId)
-      .subscribe(
-        (res: TestResult) => {
-          // this.router.navigate(['test-result-view'], { relativeTo:  })
-        },
-        err => {
-          alert('Unable to get result at this time. Please try again later.');
-          console.log(err);
         }
       );
   }

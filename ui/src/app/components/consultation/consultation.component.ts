@@ -8,6 +8,7 @@ import { Prescription } from '../../pharmacy/prescription';
 import { TestRequest } from '../../lab/test-request';
 import { PrescriptionService } from '../../pharmacy/prescription.service';
 import { TestService } from '../../lab/test.service';
+import { CHEMISTRY, MICROBIOLOGY, HAEMATOLOGY } from '../../lab/test-types';
 
 @Component({
   selector: 'app-consultation',
@@ -16,13 +17,15 @@ import { TestService } from '../../lab/test.service';
 })
 export class ConsultationComponent implements OnInit {
 
+  chemistry = CHEMISTRY;
+  microbiology = MICROBIOLOGY;
+  haematology = HAEMATOLOGY;
 
   consultation = new Consultation();
   patient = new Patient();
   doctor = new Doctor();
   prescription = new Prescription();
   testRequest = new TestRequest();
-
 
   constructor(
     private router: Router,
@@ -45,7 +48,7 @@ export class ConsultationComponent implements OnInit {
         .subscribe(
           (res: Consultation) => {
             this.consultation = res;
-            
+
             this.prescription.consultationId = this.consultation.consultationId;
             this.testRequest.consultationId = this.consultation.consultationId;
 

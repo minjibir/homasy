@@ -9,6 +9,7 @@ import { Prescription } from '../prescription';
 })
 export class PrescriptionsComponent implements OnInit {
 
+  patientId: number;
   prescriptions: Prescription[];
   prescription: Prescription;
 
@@ -29,18 +30,37 @@ export class PrescriptionsComponent implements OnInit {
       );
   }
 
-  markDone(prescription: Prescription) {
-    prescription.prescriptionStatus = true
+  prescriptionsByPatient() {
     this.prescriptionService
-      .update(prescription)
+      .getPrescriptionsByPatient(this.patientId)
       .subscribe(
-        res => {
-          this.prescription = res
+        (res: Prescription[]) => {
+          this.prescriptions = res
         },
         err => {
           console.log(err)
         }
       );
+  }
+
+  markDone(prescription: Prescription) {
+    if (
+      prescription.available !== null &&
+      prescription.available !== '' &&
+      prescription.prescriptionStatus !== true
+    ) {
+      prescription.prescriptionStatus = true
+      this.prescriptionService
+        .update(prescription)
+        .subscribe(
+          res => {
+            this.prescription = res
+          },
+          err => {
+            console.log(err)
+          }
+        );
+    }
   }
 
 }

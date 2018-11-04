@@ -18,6 +18,10 @@ import { LabMainComponent } from './lab/lab-main/lab-main.component';
 import { TestResultComponent } from './lab/test-result/test-result.component';
 import { TestResultEntryComponent } from './lab/test-result-entry/test-result-entry.component';
 import { TestRequestComponent } from './lab/test-request/test-request.component';
+import { PharmacyMainComponent } from './pharmacy/pharmacy-main/pharmacy-main.component';
+import { PrescriptionsComponent } from './pharmacy/prescriptions/prescriptions.component';
+import { PrescriptionsRecordComponent } from './pharmacy/prescriptions-record/prescriptions-record.component';
+import { TestResultViewComponent } from './lab/test-result-view/test-result-view.component';
 
 const routes: Routes = [
   { path: '', component: EntranceComponent },
@@ -32,34 +36,39 @@ const routes: Routes = [
 
       { path: 'addpatient', component: AddPatientComponent },
       { path: 'patientdetails', component: PatientDetailsComponent },
-      
+
       { path: 'consultation', component: ConsultationComponent },
-      { path: 'billing', component: BillComponent },
-      { path: 'accounting', component: AccountantComponent },
+      // { path: 'billing', component: BillComponent },
+      // { path: 'accounting', component: AccountantComponent },
     ]
   },
 
 
-  // Lab path
+  // Lab paths
   {
     path: 'lab',
     component: LabComponent,
     children: [
-      {path: '', component: LabMainComponent},
-      {path: 'test-request', component: TestRequestComponent},
-      {path: 'test-result', component: TestResultComponent},
-
-      // Should really be loaded through button loading function.
-      {path: 'test-result-entry', component: TestResultEntryComponent},
+      // { path: '', component: LabMainComponent },
+      { path: '', component: TestRequestComponent },
+      { path: 'test-requests', component: TestRequestComponent },
+      // { path: 'test-results', component: TestResultComponent },
+      // { path: 'test-result-view/:id', component: TestResultViewComponent },
+      { path: 'test-result-entry/:id', component: TestResultEntryComponent },
     ]
   },
+
+  // Pharmacy paths
   {
     path: 'pharmacy',
     component: PharmacyComponent,
     children: [
-
+      { path: '', component: PharmacyMainComponent },
+      { path: 'prescriptions', component: PrescriptionsComponent },
+      { path: 'records', component: PrescriptionsRecordComponent },
     ]
   },
+
   { path: 'login', component: LoginComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

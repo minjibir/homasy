@@ -7,7 +7,7 @@
   <div class="row py-3 mx-md-0">
     <form class="form-inline">
       <input class="form-control mr-2" type="text" placeholder="Patient ID" aria-label="Search">
-      <button class="btn btn-outline-primary" type="submit">Search</button>
+      <button class="btn btn-outline-primary" (click)="prescriptionsByPatient()">Search</button>
     </form>
   </div>
 
@@ -18,17 +18,17 @@
         <th>Patient ID</th>
         <th>Prescription</th>
         <th>Date</th>
-        <th>Issued <i>[Status]</i></th>
+        <th>Available Medication</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let prescription of prescriptions">
         <td>{{prescription.prescriptionId}}</td>
-        <td>{{prescription.prescriptionContent}}</td>
         <td>{{prescription.patientId}}</td>
+        <td>{{prescription.prescriptionContent}}</td>
         <td>{{prescription.prescriptionDate}}</td>
-        <td>{{prescription.prescriptionStatus}}</td>
+        <td><input type="text" class="form-control" [(ngModel)]="prescription.available" name="available" id="available" placeholder="Available medications here"></td>
         <td><button class="btn btn-sm-outline btn-primary" (click)="markDone(prescription)">Done</button></td>
       </tr>
     </tbody>

@@ -9,35 +9,73 @@
 
 <div class="container">
   <form class="card bg-light shadow p-5 border border-secondary">
+
     <div class="form-row">
+
       <div class="col-md-6">
         <div class="form-group mb-4">
           <label class="h4 text-center text-primary" for="statement">Patient Statement</label>
           <textarea class="form-control " rows="5" [(ngModel)]="consultation.statement" name="statement " id="statement " placeholder="What did the patient say?"
             required></textarea>
         </div>
+      </div>
 
-        <div class="form-group mb-4 ">
+      <div class="col-md-6">
+        <div class="form-group mb-2">
           <label class="h4 text-center text-primary" for="diagnosis">Diagnosis</label>
           <textarea class="form-control " rows="5" [(ngModel)]="consultation.diagnosis" name="diagnosis" id="diagnosis " placeholder="What did you conclude as a doctor?"
             required></textarea>
         </div>
       </div>
+    </div>
 
-      <div class="col-md-6">
-        <div class="form-group mb-4 ">
+    <div class="form-row mb-4">
+      <!-- <div class="form-group mb-4">
           <label class="h4 text-center text-primary" for="testsRequested">Request Test</label>
           <textarea rows="5" [(ngModel)]="testRequest.testsRequested" name="testsRequested" id="testsRequested" class="form-control"
             placeholder="Write all the required test seperated by comma if any."></textarea>
-        </div>
+        </div> -->
 
-        <div class="form-group mb-4 ">
-          <label class="h4 text-center text-primary" for="prescriptionContent">Prescription</label>
-          <textarea type="text" class="form-control" rows="5" [(ngModel)]="prescription.prescriptionContent" name="prescriptionContent"
-            id="prescriptionContent" placeholder="What do you prescribe?" required></textarea>
+      <label class="h4 text-center text-primary" for="prescriptionContent">Prescription</label>
+      <textarea type="text" class="form-control" rows="5" [(ngModel)]="prescription.prescriptionContent" name="prescriptionContent"
+        id="prescriptionContent" placeholder="What do you prescribe?" required></textarea>
+    </div>
+
+    <!-- Test request section -->
+    <label class="h4 text-center text-primary mb-2" for="">Test Request</label>
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <select id="labSelect" name="testsRequested" class="form-control mdb-select md-form colorful-select dropdown-primary bg-light"
+            multiple searchable="Search.." size="15" [(ngModel)]="testRequest.testsRequested">
+
+            <option value="" disabled selected>Select a Test (Hold control to select multiple)</option>
+
+            <optgroup class="" label="CHEMISTRY">
+              <option *ngFor="let chem of chemistry" value={{chem.value}}>{{chem.viewValue}}</option>
+            </optgroup>
+
+            <optgroup class="" label="MICROBIOLOGY SWABS">
+              <option *ngFor="let micro of microbiology" value={{micro.value}}> {{micro.viewValue}}</option>
+            </optgroup>
+
+            <optgroup label="HAEMATOLOGY">
+              <option *ngFor="let haem of haematology" value={{haem.value}}> {{haem.viewValue}}</option>
+            </optgroup>
+          </select>
         </div>
       </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <textarea class="form-control" style="height: 250px;" name="testsRequested" id="testsRequested" class="form-control" readonly
+            disabled>{{testRequest.testsRequested}}</textarea>
+        </div>
+      </div>
+
     </div>
+
+
     <div class="form-group">
       <button class="btn btn-primary" (click)="submitConsultation()">Submit</button>
     </div>

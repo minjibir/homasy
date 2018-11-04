@@ -1,16 +1,15 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 mt-3 pb-2">
   <h1 class="h2">Test Requests</h1>
-
-  <div>
+  <!-- <div>
     <button class="btn btn-sm btn-primary mr-2" (click)="recordTest()">Record Result</button>
-  </div>
+  </div> -->
 </div>
 
 <div class="table-responsive">
 
   <div class="row py-3 mx-md-0">
     <form class="form-inline">
-      <!-- <input type="number" class="form-control mr-2" [(ngModel)]="patientId" name="patientId" id="patientId" placeholder="Patient's ID" -->
+      <input type="number" class="form-control mr-2" [(ngModel)]="patientId" name="patientId" id="patientId" placeholder="Patient's ID"
         aria-label="Search">
       <button class="btn btn-outline-primary" (click)="searchRequestByPatient()">Search</button>
     </form>
@@ -23,6 +22,7 @@
         <th>Tests Requested</th>
         <th>Patient ID</th>
         <th>Date Requested</th>
+        <th>Tested</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -32,12 +32,10 @@
         <td>{{testRequest.testsRequested}}</td>
         <td>{{testRequest.patientId}}</td>
         <td>{{testRequest.dateTimeRequested}}</td>
-        <td *ngIf="resultIsReady"><button class="btn btn-sm btn-outline-primary" (click)="provideResult(testRequest)">Provide
-            Result
-          </button></td>
-        <td *ngIf="!resultIsReady"><button class="btn btn-sm btn-outline-primary" (click)="viewTestResult(testRequest)">View
-            Result
-          </button></td>
+        <td>{{testRequest.tested}}</td>
+        <td>
+          <button class="btn btn-sm btn-outline-primary" (click)="viewTestResult(testRequest.testRequestId)">View</button>
+        </td>
       </tr>
     </tbody>
   </table>

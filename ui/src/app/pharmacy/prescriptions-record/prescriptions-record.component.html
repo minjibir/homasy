@@ -6,8 +6,8 @@
 
   <div class="row py-3 mx-md-0">
     <form class="form-inline">
-      <input class="form-control mr-2" type="text" placeholder="Patient ID" aria-label="Search">
-      <button class="btn btn-outline-primary" type="submit">Search</button>
+      <input class="form-control mr-2" type="text" [(ngModel)]="patientId" placeholder="Patient ID" aria-label="Search">
+      <button class="btn btn-outline-primary" (click)="prescriptionsByPatient()">Search</button>
     </form>
   </div>
 

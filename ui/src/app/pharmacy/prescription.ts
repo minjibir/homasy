@@ -9,5 +9,6 @@ export class Prescription {
     
     public prescriptionContent: string;
     public prescriptionStatus?: boolean;
+    public available: string;
     public prescriptionDateTime?: string;
 }

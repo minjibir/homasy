@@ -9,12 +9,15 @@ import { TestResultEntryComponent } from './test-result-entry/test-result-entry.
 import { TestResultComponent } from './test-result/test-result.component';
 import { LabMainComponent } from './lab-main/lab-main.component';
 import { TestRequestComponent } from './test-request/test-request.component';
+import { FormsModule } from '@angular/forms';
+import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    LabRoutingModule
+    LabRoutingModule,
+    FormsModule
   ],
-  declarations: [LabComponent, LabHeaderComponent, LabSideNavComponent, TestResultEntryComponent, TestResultComponent, LabMainComponent, TestRequestComponent, TestRequestComponent]
+  declarations: [LabComponent, LabHeaderComponent, LabSideNavComponent, TestResultEntryComponent, TestResultComponent, LabMainComponent, TestRequestComponent, TestRequestComponent, TestResultViewComponent]
 })
 export class LabModule { }
