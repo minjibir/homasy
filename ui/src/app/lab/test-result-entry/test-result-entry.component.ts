@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TestRequest } from '../test-request';
 import { Router } from '@angular/router';
 import { TestService } from '../test.service';
+import { TestResult } from '../test-result';
+import { CHEMISTRY, MICROBIOLOGY, HAEMATOLOGY } from '../test-types';
 
 @Component({
   selector: 'app-test-result-entry',
@@ -10,22 +11,25 @@ import { TestService } from '../test.service';
 })
 export class TestResultEntryComponent implements OnInit {
 
-  test = new TestRequest();
+  testResult = new TestResult();
+  chemistry = CHEMISTRY;
+  microbiology = MICROBIOLOGY;
+  haematology = HAEMATOLOGY;
 
   constructor(
     private router: Router,
-    private labResultService: TestService
+    private TestService: TestService
   ) { }
 
   ngOnInit() {
   }
 
-  saveRecord(test: TestRequest) {
-    this.labResultService
-      .recordResult(test)
+  saveRecord() {
+    this.TestService
+      .recordResult(this.testResult)
       .subscribe(
         res => {
-          this.test = res
+          this.testResult = res
         },
         err => {
           console.log(err);

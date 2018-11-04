@@ -1,147 +1,37 @@
-<div class="container justify-content-between align-items-center pt-3 mt-3 pb-2">
-  <h1 class="h2">Record new Results</h1>
+<h2>Test Result Entry</h2>
 
-  <div class="table-responsive5">
-    <form class="container" id="needs-validation my-5">
-      <div class="container">
+<form class="container" id="needs-validation mb-5" novalidate>
+  <div class="container mb-5">
 
-        <div class="row my-5">
-          <div class="col-md-6 form-group">
-            <label for="patientId">Patient ID</label>
-            <input id="patientId" name="patientId" class="form-control" type="number">
-          </div>
-        </div>
+    <div class="row mt-5">
+      <div class="col-md-4 mb-3 shadow-sm">
 
-        <div class="row">
-          <div class="col-md-33">
-            <input type="checkbox" id="2hpps" name="hpps"> <label for="2hpps">2 hpps</label>
-            <input type="text" class="form-control" id="2hpps_result" name="hpps_result" placeholder="2 Hpps result">
-          </div>
-          <div class="col-md-33">
-            <input type="checkbox" id="blood_group" name="blood_group"><label for="blood_group">Blood Group</label>
-            <select class="custom-select2 mr-sm-2sm-0" id="blood_group_result" name="blood_group_result">
-              <option selected>Choose...</option>
-              <option value="1">A</option>
-              <option value="2">B</option>
-              <option value="3">AB</option>
-              <option value="3">O</option>
-            </select>
+        <select id="labSelect" name="labSelect" class="form-control mdb-select md-form colorful-select dropdown-primary bg-light"
+          multiple searchable="Search.." size=25 [(ngModel)]="selectedVal">
+          <option value="" disabled selected>Select a Test (Hold control to select multiple)</option>
 
-          </div>
-          <div class="col-md-33">
-            <input type="checkbox" id="fasting_blood_sugar" name="fasting_blood_sugar"> <label for="fasting_blood_sugar">Fasting
-              blood sugar</label>
-            <input type="text" class="form-control" id="fasting_blood_sugar_result" name="fasting_blood_sugarresult" placeholder="Fasting blood sugar result..">
-          </div>
-          <div class="col-md-33">
-            <input type="checkbox" id="fbc" name="fbc"> <label for="fbc">FBC</label>
-            <input type="text" class="form-control" id="fbc_group_result" name="fbc_result" placeholder="Fbc result...">
-          </div>
-        </div>
+          <optgroup class="" label="CHEMISTRY">
+            <option *ngFor="let chem of chemistry" value={{chem.value}}>{{chem.viewValue}}</option>
+          </optgroup>
 
-        <div class="row mt-3">
-          <div class="col-md-33">
-            <input type="checkbox" id="hbag" name="hbaic"> <label for="hbaic">Hbaic</label>
-            <input type="text" class="form-control" id="hbaic_result" name="hbaic_result" placeholder="Hbaic result">
-          </div>
-          <div class="col-md-33">
-            <input type="checkbox" id="hbsap" name="hbsap"> <label for="hbsap">Hbsap</label>
-            <input type="text" class="form-control" id="hbsap_result" name="hbsap_result" placeholder="Hbsap result...">
-          </div>
-          <div class="col-md-33">
-            <input type="checkbox" id="hcv" name="hcv"> <label for="hcv">Hcv</label>
-            <input type="text" class="form-control" id="hcv_result" name="hcv_result" placeholder="Hcv result..">
-          </div>
-          <div class="col-md-33">
-            <input type="checkbox" id="hiv" name="hiv"> <label for="hiv">HIV</label>
-            <input type="text" class="form-control" id="hiv_result" name="hiv_result" placeholder="Hiv result...">
-          </div>
-        </div>
+          <optgroup class="" label="MICROBIOLOGY SWABS">
+            <option *ngFor="let micro of microbiology" value={{micro.value}}> {{micro.viewValue}}</option>
+          </optgroup>
 
-        <div class="row mt-3">
-          <div class="col-md-33">
-            <input type="checkbox" id="hepetitis_profile" name="hepetitis_profile"> <label for="hepetitis_profile">Hepitis</label>
-            <input type="text" class="form-control" id="hepetitis_profile_result" name="hepetitis_profile_result" placeholder="hepetitis_profile result">
-          </div>
-          <div class="col-md-33">
-            <input type="checkbox" id="lipid_profile" name="lipid_profile"> <label for="lipid_profile">Lipid Profile
-            </label>
-            <input type="text" class="form-control" id="lipid_profile_result" name="lipid_profile_result" placeholder="lipid_profile result...">
-          </div>
-          <div class="col-md-33">
-            <input type="checkbox" id="liver_function" name="liver_function"> <label for="liver_function">Liver Function
-            </label>
-            <input type="text" class="form-control" id="liver_function_result" name="liver_function_result" placeholder="liver_function result..">
-          </div>
-          <div class="col-md-33">
-            <input type="checkbox" id="malaria" name="malaria"> <label for="malaria">Malaria</label>
-            <input type="text" class="form-control" id="malaria_group_result" name="malaria_result" placeholder="Malaria result...">
-          </div>
-        </div>
-        <div class="row mt-3">
-
-          <div class="col-md-33">
-            <input type="checkbox" id="pregnancy" name="pregnancy"> <label for="pregnancy">Pregnancy</label>
-            <input type="text" class="form-control" id="pregnancy_result" name="pregnancy_result" placeholder="pregnancy result..">
-          </div>
-
-          <div class="col-md-33">
-            <input type="checkbox" id="psa" name="psa"> <label for="psa">Psa</label>
-            <input type="text" class="form-control" id="psa_result" name="psa_result" placeholder="psa result">
-          </div>
-
-          <div class="col-md-33">
-            <input type="checkbox" id="random_blood_sugar" name="random_blood_sugar"> <label for="random_blood_sugar">Random
-              blood sugar</label>
-            <input type="text" class="form-control" id="random_blood_sugar_result" name="random_blood_sugar_result" placeholder="random blood sugar result...">
-          </div>
-
-          <div class="col-md-33">
-            <input type="checkbox" id="stool_mcs" name="stool_mcs"> <label for="stool_mcs">Stool mcs</label>
-            <input type="text" class="form-control" id="stool_mcs_group_result" name="stool_mcs_result" placeholder="stool mcs result...">
-          </div>
-        </div>
-
-        <div class="row mt-3">
-
-          <div class="col-md-33">
-            <input type="checkbox" id="stool_microscopy" name="stool_microscopy"> <label for="stool_microscopy">Stool microscopy
-            </label>
-            <input type="text" class="form-control" id="stool_microscopy_result" name="stool_microscopy_result" placeholder="stool microscopy result..">
-          </div>
-
-          <div class="col-md-33">
-            <input type="checkbox" id="toxicology" name="toxicology"> <label for="toxicology">Toxicology</label>
-            <input type="text" class="form-control" id="toxicology_result" name="toxicology_result" placeholder="toxicology result">
-          </div>
-
-          <div class="col-md-33">
-            <input type="checkbox" id="urinalysis" name="urinalysis"> <label for="urinalysis">Urinalysis</label>
-            <input type="text" class="form-control" id="urinalysis_result" name="urinalysis_result" placeholder="urinalysis result...">
-          </div>
-
-          <div class="col-md-33">
-            <input type="checkbox" id="urine_mcs" name="urine_mcs"> <label for="urine_mcs">Urine mcs</label>
-            <input type="text" class="form-control" id="urine_mcs_group_result" name="urine_mcs_result" placeholder="urine mcs result...">
-          </div>
-        </div>
-
-        <div class="row mt-3">
-
-          <div class="col-md-33">
-            <input type="checkbox" id="vdrc" name="vdrc"> <label for="vdrc">Vdrc</label>
-            <input type="text" class="form-control" id="vdrc_result" name="vdrc_result" placeholder="vdrc result..">
-          </div>
-
-          <div class="col-md-33">
-            <input type="checkbox" id="widal" name="widal"> <label for="widal">Widal</label>
-            <input type="text" class="form-control" id="widal_result" name="widal_result" placeholder="widal result">
-          </div>
-        </div>
-
-        <button class="btn btn-primary my-4 px-5" ((click)="saveRecord()">Save Record</button>
+          <optgroup label="HAEMATOLOGY">
+            <option *ngFor="let haem of haematology" value={{haem.value}}> {{haem.viewValue}}</option>
+          </optgroup>
+        </select>
       </div>
-    </form>
+
+      <div class="col-md-4 mb-3 shadow-sm">
+        <textarea name="labResult" id="labResult" readonly disabled rows="20" cols="54"> {{ selectedVal }} 
+        <br/>
+        </textarea>
+        <button class="btn-save btn btn-primary btn-sm btn-block" (click)="">Save</button>
+      </div>
+    </div>
+
 
   </div>
-</div>
+</form>

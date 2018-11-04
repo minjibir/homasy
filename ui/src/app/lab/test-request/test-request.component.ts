@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TestRequest } from '../test-request';
 import { Router } from '@angular/router';
-import { relative } from 'path';
 import { TestService } from '../test.service';
 import { TestResult } from '../test-result';
 
@@ -58,7 +57,7 @@ export class TestRequestComponent implements OnInit {
       .getTestResultById(testResultId)
       .subscribe(
         (res: TestResult) => {
-          this.router.navigate(['test-result-view'], { relativeTo: this.route })
+          // this.router.navigate(['test-result-view'], { relativeTo:  })
         },
         err => {
           alert('Unable to get result at this time. Please try again later.');
