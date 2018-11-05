@@ -22,9 +22,9 @@ public class Secured extends Security.Authenticator {
             String token = headers.get(0);
 
             try {
-                Integer uuid = Integer.parseInt(TokenService.decodeToken(token));
+                Long uuid = Long.parseLong(TokenService.decodeToken(token));
                 Staff staff = Staff.find.byId(uuid);
-                if ( staff != null) {
+                if (staff != null) {
                     ctx.args.put("uuid", uuid);
 //                    ctx.args.put("role", staff.role);
                     return uuid.toString();
