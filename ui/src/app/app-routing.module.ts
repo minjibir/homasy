@@ -17,6 +17,9 @@ import { ConsultationComponent } from './consultation/consultation/consultation.
 import { RecordsMainComponent } from './records/records-main/records-main.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RecordsComponent } from './records/records/records.component';
+import { PatientComponent } from './records/patient/patient.component';
+import { ConsultationMainComponent } from './consultation/consultation-main/consultation-main.component';
 
 const routes: Routes = [
 
@@ -26,18 +29,23 @@ const routes: Routes = [
   // Records paths
   {
     path: 'records',
-    component: RecordsMainComponent,
+    component: RecordsComponent,
     children: [
-      { path: '', component: AppointmentComponent },
+      { path: '', component: RecordsMainComponent },
+      { path: 'patients', component: PatientComponent },
       { path: 'appointments', component: AppointmentComponent },
-      { path: 'addappointment', component: AppointmentFormComponent },
-
       { path: 'addpatient', component: AddPatientComponent },
+      { path: 'addappointment', component: AppointmentFormComponent },
       { path: 'patientdetails', component: PatientDetailsComponent },
+    ]
+  },
 
-      { path: 'consultation', component: ConsultationComponent },
-      // { path: 'billing', component: BillComponent },
-      // { path: 'accounting', component: AccountantComponent },
+  // Consultation paths
+  {
+    path: 'consultation',
+    component: ConsultationComponent,
+    children: [
+      { path: '', component: ConsultationMainComponent },
     ]
   },
 

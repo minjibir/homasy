@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 import { AppService } from './app.service';
 import { AppHttpInterceptorService } from './http-interceptor.service';
-
 //////////
 //////////
 // Nawa //
@@ -25,8 +24,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 @NgModule({
   declarations: [
     AppComponent,
-    ///
-    ///
     LoginComponent,
     PageNotFoundComponent,
   ],

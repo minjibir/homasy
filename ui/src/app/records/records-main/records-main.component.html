@@ -1,52 +1,54 @@
-<app-records-header></app-records-header>
+<div>
+  <header>
+    <div class="container">
+      <div class="row justify-content-center">
+        <h4 class="display-4 text-primary text-center font-weight-bold">RECORDS</h4>
+      </div>
+    </div>
+  </header>
 
-<div class="container-fluid">
-  <div class="row">
+  <div class="container pt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10 text-center">
 
-    <nav class="col-md-2 d-none d-md-block bg-primary sidebar shadow pt-5">
-      <app-records-side-nav></app-records-side-nav>
-    </nav>
+        <div class="card shadow-sm rounded p-5 bg-light border">
+          <div class="row justify-content-center">
+            <div class="col-md-3 text-center">
+              <a routerLink="/records/patients" class="btn btn-block btn-outline-primary card shadow-sm justify-content-center align-middle py-5">
+                <span class="font-weight-bold">
+                  Patients
+                </span>
+              </a>
+            </div>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <router-outlet></router-outlet>
-    </main>
+            <div class="col-md-3 text-center">
+              <a routerLink="/records/appointments" class="btn btn-block btn-outline-primary card shadow-sm justify-content-center align-middle py-5">
+                <span class="font-weight-bold">
+                  Appointments
+                </span>
+              </a>
+            </div>
+
+            <!-- <div class="col-md-3 text-center">
+              <a routerLink="/records/staffs" class="btn btn-block btn-outline-primary card shadow-sm justify-content-center align-middle py-5">
+                <span class="font-weight-bold">
+                  Staffs
+                </span>
+              </a>
+            </div> -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
+
+  <footer class="bottom-fixed">
+    <div class="container">
+      <div class="row justify-content-center my-5 py-5">
+        <span class="small text-center text-muted">Cyapex &copy; 2018, All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
 </div>
-
-<!-- Bootstrap core JavaScript
-  ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="../../../../node_modules/jquery/dist/jquery.slim.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../../../node_modules/jquery/dist/jquery.slim.min.js"><\/script>')</script>
-<script src="../../../../node_modules/popper.js/dist/popper.min.js"></script>
-<script src="../../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<script>
-  var ctx = document.getElementById("myChart");
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      datasets: [{
-        data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: false
-          }
-        }]
-      },
-      legend: {
-        display: false,
-      }
-    }
-  });
-</script>
