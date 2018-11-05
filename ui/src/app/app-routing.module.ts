@@ -1,36 +1,34 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppointmentComponent } from './components/appointment/appointment.component';
-import { AddPatientComponent } from './components/patient-form/patient-form.component';
-import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+
 import { EntranceComponent } from './entrance/entrance.component';
-import { LoginComponent } from './components/login/login.component';
-import { ConsultationComponent } from './components/consultation/consultation.component';
-import { BillComponent } from './components/bill/bill.component';
-import { AccountantComponent } from './components/accountant/accountant.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { PatientDetailsComponent } from './components/patient-details/patient-details.component';
 import { LabComponent } from './lab/lab/lab.component';
 import { PharmacyComponent } from './pharmacy/pharmacy/pharmacy.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { LabMainComponent } from './lab/lab-main/lab-main.component';
-import { TestResultComponent } from './lab/test-result/test-result.component';
 import { TestResultEntryComponent } from './lab/test-result-entry/test-result-entry.component';
 import { TestRequestComponent } from './lab/test-request/test-request.component';
 import { PharmacyMainComponent } from './pharmacy/pharmacy-main/pharmacy-main.component';
 import { PrescriptionsComponent } from './pharmacy/prescriptions/prescriptions.component';
 import { PrescriptionsRecordComponent } from './pharmacy/prescriptions-record/prescriptions-record.component';
-import { TestResultViewComponent } from './lab/test-result-view/test-result-view.component';
+import { AppointmentComponent } from './records/appointment/appointment.component';
+import { AppointmentFormComponent } from './records/appointment-form/appointment-form.component';
+import { AddPatientComponent } from './records/patient-form/patient-form.component';
+import { PatientDetailsComponent } from './records/patient-details/patient-details.component';
+import { ConsultationComponent } from './consultation/consultation/consultation.component';
+import { RecordsMainComponent } from './records/records-main/records-main.component';
+import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
+
   { path: '', component: EntranceComponent },
   { path: 'login', component: LoginComponent },
+
+  // Records paths
   {
-    path: 'dashboard',
-    component: DashboardComponent,
+    path: 'records',
+    component: RecordsMainComponent,
     children: [
-      { path: 'admin', component: AdminComponent },
+      { path: '', component: AppointmentComponent },
       { path: 'appointments', component: AppointmentComponent },
       { path: 'addappointment', component: AppointmentFormComponent },
 
@@ -42,7 +40,6 @@ const routes: Routes = [
       // { path: 'accounting', component: AccountantComponent },
     ]
   },
-
 
   // Lab paths
   {
@@ -69,7 +66,6 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'login', component: LoginComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
