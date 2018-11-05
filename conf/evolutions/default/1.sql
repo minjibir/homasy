@@ -72,6 +72,16 @@ create table patients (
   constraint pk_patients primary key (patient_id)
 );
 
+create table prescription (
+  prescription_id               bigserial not null,
+  consultation_id               bigint not null,
+  prescription_content          varchar(255) not null,
+  prescription_status           boolean default false not null,
+  available                     varchar(255),
+  prescription_date_time        timestamptz not null,
+  constraint pk_prescription primary key (prescription_id)
+);
+
 create table receipts (
   receipt_id                    uuid not null,
   payment_method                varchar(255) not null,
@@ -103,6 +113,8 @@ drop table if exists sessions cascade;
 drop table if exists doctors cascade;
 
 drop table if exists patients cascade;
+
+drop table if exists prescription cascade;
 
 drop table if exists receipts cascade;
 
