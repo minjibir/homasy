@@ -29,6 +29,6 @@ public class TestRequest extends Model {
     @WhenCreated
     public LocalDateTime dateTimeRequested;
 
-    public static Finder<Long, TestRequest> find = new Finder<Long, Prescription>(TestRequest.class);
+    public static Finder<Long, TestRequest> find = new Finder<Long, TestRequest>(TestRequest.class);
 
 }
