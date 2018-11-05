@@ -20,14 +20,13 @@ export class AddPatientComponent implements OnInit {
   }
 
   registerPatient() {
-    // console.log(this.patient);
+    console.log(this.patient);
     this.patientService
       .registerPatient(this.patient)
       .subscribe(
         (res: Patient) => {
           this.patient = res
           this.successMsg = "Patient successfully registered."
-          console.log(res)
         },
         err => {
           console.log(err);

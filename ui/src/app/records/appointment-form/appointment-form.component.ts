@@ -24,13 +24,11 @@ export class AppointmentFormComponent implements OnInit {
   }
 
   addAppointment() {
-
     if (
       this.appointment.appointmentDate !== undefined &&
       this.appointment.appointmentTime !== undefined &&
       this.appointment.patientId !== null
     ) {
-      console.log(this.appointment);
       this.appointmentService
         .addAppointment(this.appointment)
         .subscribe(

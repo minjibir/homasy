@@ -37,30 +37,33 @@ export class ConsultationMainComponent implements OnInit {
   }
 
   submitConsultation() {
-    if (
-      this.consultation.diagnosis !== null &&
-      this.consultation.statement !== null &&
-      this.prescription.prescriptionContent !== null
-    ) {
-      this.consultationService
-        .saveConsultation(this.consultation)
-        .subscribe(
-          (res: Consultation) => {
-            this.consultation = res;
+    console.log(this.consultation);
+    console.log(this.prescription);
+    console.log(this.testRequest);
+    // if (
+    //   this.consultation.diagnosis !== null &&
+    //   this.consultation.statement !== null &&
+    //   this.prescription.prescriptionContent !== null
+    // ) {
+    //   this.consultationService
+    //     .saveConsultation(this.consultation)
+    //     .subscribe(
+    //       (res: Consultation) => {
+    //         this.consultation = res;
 
-            this.prescription.consultationId = this.consultation.consultationId;
-            this.testRequest.consultationId = this.consultation.consultationId;
+    //         this.prescription.consultationId = this.consultation.consultationId;
+    //         this.testRequest.consultationId = this.consultation.consultationId;
 
-            this.savePrescription();
-            this.requestTest();
+    //         this.savePrescription();
+    //         this.requestTest();
 
-            console.log(res)
-          },
-          err => {
-            console.log(err);
-          }
-        );
-    }
+    //         console.log(res)
+    //       },
+    //       err => {
+    //         console.log(err);
+    //       }
+    //     );
+    // }
   }
 
   savePrescription() {

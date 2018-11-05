@@ -7,7 +7,7 @@ import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-import java.util.UUID;
+
 
 import models.Appointment;
 import play.mvc.Results;
@@ -29,8 +29,8 @@ public class AppointmentController extends Controller {
         return ok(Json.toJson(Appointment.find.all()));
     }
 
-    public Result getAppointmentById(String id) {
-        return ok(Json.toJson(Appointment.find.byId(UUID.fromString(id))));
+    public Result getAppointmentById(Long id) {
+        return ok(Json.toJson(Appointment.find.byId(id)));
     }
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -48,9 +48,9 @@ public class AppointmentController extends Controller {
         return notFound(Json.toJson("Not found"));
     }
 
-    public Result deleteAppointment(String appointmentId) {
+    public Result deleteAppointment(Long appointmentId) {
 
-//        if (Appointment.find.byId(UUID.fromString(appointmentId)).delete())
+//        if (Appointment.find.byId(Long.fromString(appointmentId)).delete())
 //            return ok(Json.toJson("Deleted!"));
 //
 //        return notFound(Json.toJson("Not found!"));

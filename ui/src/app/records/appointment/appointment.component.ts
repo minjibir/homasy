@@ -20,22 +20,17 @@ export class AppointmentComponent implements OnInit {
 
   ngOnInit() {
     this.appointmentService
-    .getAppointments()
-    .subscribe(
-      res => {
-        this.appointments = res;
-      },
-      err => {
-        console.log(err)
-      }
-    );
-
+      .getAppointments()
+      .subscribe(
+        res => {
+          this.appointments = res;
+        },
+        err => {
+          console.log(err)
+        }
+      );
   }
 
-  addpatient() {
-    this.router.navigate(['/records/addpatient']);
-  }
-  
   addappointment() {
     this.router.navigate(['/records/addappointment']);
   }

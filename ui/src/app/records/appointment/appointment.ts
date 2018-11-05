@@ -1,6 +1,8 @@
 export class Appointment {
-	public patientId: string;
-	public appointmentId: string;
-	public appointmentDate: string;
-	public appointmentTime: string;
+    public appointmentId: number;
+    public patientId: number;
+    public staffId: number;
+    public appointmentDate: string;
+    public appointmentTime: string;
+    public timeOfAppointment?: string;
 }

@@ -6,9 +6,6 @@ import play.libs.Json;
 import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
-
-import java.util.UUID;
-
 import models.Consultation;
 
 public class ConsultationController extends Controller {
@@ -27,12 +24,12 @@ public class ConsultationController extends Controller {
         return created(Json.toJson("Created"));
     }
 
-    public Result getAllConsultationByPatientId(String patientId) {
+    public Result getAllConsultationByPatientId(Long patientId) {
         return ok(Json.toJson(Consultation.find.all()));
     }
 
-    public Result getConsultationByConIdAndPatId(String conId, String patId) {
-        return ok(Json.toJson(Consultation.find.byId(UUID.fromString(conId))));
+    public Result getConsultationByConIdAndPatId(Long conId, Long patId) {
+        return ok(Json.toJson(Consultation.find.byId(conId)));
     }
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -51,7 +48,7 @@ public class ConsultationController extends Controller {
     }
 
 //    public Result deleteConsultation(String id) {
-//        if (Consultation.find.byId(UUID.fromString(id)).delete())
+//        if (Consultation.find.byId(Long.fromString(id)).delete())
 //            return ok(Json.toJson("Deleted!"));
 //
 //        return notFound(Json.toJson("Not found!"));

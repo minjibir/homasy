@@ -5,28 +5,52 @@
 # Serve index page from public directory
 GET           /                              controllers.FrontendController.index()
 
-GET           /api/patients/:id              controllers.PatientController.getPatientById(id: String)
+GET           /api/patients/:id              controllers.PatientController.getPatientById(id: Long)
 GET           /api/patients                  controllers.PatientController.getAllPatients
 POST          /api/patients                  controllers.PatientController.registerPatient
 PUT           /api/patients                  controllers.PatientController.updatePatient
-DELETE        /api/patients/:id              controllers.PatientController.deletePatient(id: String)
+DELETE        /api/patients/:id              controllers.PatientController.deletePatient(id: Long)
 
-GET           /api/appointments/:id          controllers.AppointmentController.getAppointmentById(id: String)
+GET           /api/appointments/:id          controllers.AppointmentController.getAppointmentById(id: Long)
 GET           /api/appointments              controllers.AppointmentController.getAllAppointments
 POST          /api/appointments              controllers.AppointmentController.makeAppointment
 PUT           /api/appointments              controllers.AppointmentController.updateAppointment
-DELETE        /api/appointments/:id          controllers.AppointmentController.deleteAppointment(id: String)
+DELETE        /api/appointments/:id          controllers.AppointmentController.deleteAppointment(id: Long)
 
-GET           /api/consultations/:pId        controllers.ConsultationController.getAllConsultationByPatientId(pId: String)
+GET           /api/consultations/:pId        controllers.ConsultationController.getAllConsultationByPatientId(pId: Long)
 POST          /api/consultations             controllers.ConsultationController.saveConsultation
 PUT           /api/consultations             controllers.ConsultationController.updateConsultation
 
+GET           /api/staffs/:pId               controllers.StaffController.getStaffById(pId: Long)
+GET           /api/staffs                    controllers.StaffController.getAllStaffs
+POST          /api/staffs                    controllers.StaffController.createStaff
+PUT           /api/staffs                    controllers.StaffController.updateStaff
 
-# An example route (Prefix all API routes with apiPrefix defined in application.conf)
-GET           /api/summary                   controllers.HomeController.appSummary
+GET           /api/prescriptions/:pId        controllers.PrescriptionController.getPrescription(pId: Long)
+GET           /api/prescriptions             controllers.PrescriptionController.getAllPrescriptions
+POST          /api/prescriptions             controllers.PrescriptionController.createPrescription
+PUT           /api/prescriptions             controllers.PrescriptionController.updatePrescription
+
+GET           /api/testresult/:pId           controllers.TestResultController.getTestResult(pId: Long)
+GET           /api/testresult                controllers.TestResultController.getAllTestResults
+POST          /api/testresult                controllers.TestResultController.createTestResult
+PUT           /api/testresult                controllers.TestResultController.updateTestResult
+
+GET           /api/testrequest/:pId          controllers.TestRequestController.getTestRequest(pId: Long)
+GET           /api/testrequest               controllers.TestRequestController.getAllTestRequests
+POST          /api/testrequest               controllers.TestRequestController.createTestRequest
+PUT           /api/testrequest               controllers.TestRequestController.updateTestRequest
+
+# Login controller
+POST          /api/login                     controllers.SecurityController.login
+
 
 # Serve static assets under public directory
 GET           /*file                         controllers.FrontendController.assetOrDefault(file)
 
+
+# An example route (Prefix all API routes with apiPrefix defined in application.conf)
+# GET           /api/summary                   controllers.HomeController.appSummary
+
 # Test post request
-POST          /api/postTest                  controllers.HomeController.postTest()
+# POST          /api/postTest                  controllers.HomeController.postTest()

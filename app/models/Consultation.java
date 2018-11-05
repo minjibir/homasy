@@ -7,38 +7,26 @@ import io.ebean.annotation.WhenCreated;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.UUID;
+
 
 @Entity
 @Table(name = "sessions")
 public class Consultation extends Model {
-
+    
     @Id
-    public UUID consultationId;
-
-    //@NotNull
-    public UUID appointmentId;
-
+    public long consultationId;
+    
     @NotNull
-    public UUID patientId;
-
-    //@NotNull
-    public UUID doctorId;
-
+    public long patientId;
+    
     @NotNull
-    public String statement; // This is the patient statement about what is bothering him.
-
-    public String testtypes;
-
-    @NotNull
+    public long doctorId;
+    public String statement;
     public String diagnosis;
+    public long appointmentId;
 
-    @NotNull
-    public String prescription;
-
-    //@NotNull
     @WhenCreated
-    public LocalDateTime sessionDateTime;
+    public LocalDateTime consultationDateTime;
 
-    public static Finder find = new Finder<UUID, Consultation>(Consultation.class);
+    public static Finder find = new Finder<Long, Consultation>(Consultation.class);
 }

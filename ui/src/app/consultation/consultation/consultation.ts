@@ -5,5 +5,5 @@ export class Consultation {
     public statement: string;
     public diagnosis: string;
     public appointmentId?: number;
-
+    public consultationDateTime?: string;
 }

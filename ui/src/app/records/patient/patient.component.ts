@@ -31,8 +31,12 @@ export class PatientComponent implements OnInit {
 
   }
 
-  viewPatientDetails() {
-    this.router.navigate(['/records/patientsdetails']);
+  addpatient() {
+    this.router.navigate(['/records/addpatient']);
+  }
+
+  viewPatientDetails(id: number) {
+    this.router.navigate(['/records/patientsdetails', id]);
   }
 
 }
