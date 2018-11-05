@@ -45,7 +45,7 @@ public class TestResultController extends Controller {
     }
 
     public Result deleteTestResult(Long testRequestId) {
-        if (TestResult.find.byId((testRequestId)).delete())
+        if (TestResult.find.byId(testRequestId) != null && TestResult.find.byId(testRequestId).delete())
             return ok(Json.toJson("Deleted!"));
 
         return notFound(Json.toJson("Not found!"));
