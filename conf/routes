@@ -31,15 +31,15 @@ GET           /api/prescriptions             controllers.PrescriptionController.
 POST          /api/prescriptions             controllers.PrescriptionController.createPrescription
 PUT           /api/prescriptions             controllers.PrescriptionController.updatePrescription
 
-GET           /api/testresult/:pId           controllers.TestResultController.getTestResult(pId: Long)
-GET           /api/testresult                controllers.TestResultController.getAllTestResults
-POST          /api/testresult                controllers.TestResultController.createTestResult
-PUT           /api/testresult                controllers.TestResultController.updateTestResult
+GET           /api/testresults/:pId           controllers.TestResultController.getTestResult(pId: Long)
+GET           /api/testresults                controllers.TestResultController.getAllTestResults
+POST          /api/testresults                controllers.TestResultController.createTestResult
+PUT           /api/testresults                controllers.TestResultController.updateTestResult
 
-GET           /api/testrequest/:pId          controllers.TestRequestController.getTestRequest(pId: Long)
-GET           /api/testrequest               controllers.TestRequestController.getAllTestRequests
-POST          /api/testrequest               controllers.TestRequestController.createTestRequest
-PUT           /api/testrequest               controllers.TestRequestController.updateTestRequest
+GET           /api/testrequests/:pId          controllers.TestRequestController.getTestRequest(pId: Long)
+GET           /api/testrequests               controllers.TestRequestController.getAllTestRequests
+POST          /api/testrequests               controllers.TestRequestController.createTestRequest
+PUT           /api/testrequests               controllers.TestRequestController.updateTestRequest
 
 # Login controller
 POST          /api/login                     controllers.SecurityController.login

@@ -35,7 +35,6 @@ export class AppointmentFormComponent implements OnInit {
           (res: Appointment) => {
             this.appointment = res
             this.successMsg = "Appointment successfully booked."
-            console.log(this.successMsg)
           },
           err => {
             console.log(err);

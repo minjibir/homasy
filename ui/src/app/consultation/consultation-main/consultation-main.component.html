@@ -1,10 +1,10 @@
 <div class="container mb-5">
   <h1 class="h2 mb-5">Consultation</h1>
-
-  <div class="">
-    <!-- <button class="btn btn-sm btn-primary mr-2" (click)="patientdetails()">Patients Record</button> -->
+  <form class="form-inline">
+    <input type="number" [(ngModel)]="patientId" name="patientId" id="patientId" class="form-control mr-5" placeholder="Patient's ID">
+    <button class="btn btn-sm btn-primary mr-2" (click)="patientdetails()">Patients Record</button>
     <button class="btn btn-sm btn-primary" (click)="addappointment()">Schedule Follow up</button>
-  </div>
+  </form>
 </div>
 
 <div class="container mb-5">
@@ -15,8 +15,8 @@
       <div class="col-md-6">
         <div class="form-group mb-4">
           <label class="h4 text-center text-primary" for="statement">Patient Statement</label>
-          <textarea class="form-control " rows="5" [(ngModel)]="consultation.statement" name="statement " id="statement " placeholder="What did the patient say?"
-            required></textarea>
+          <textarea class="form-control " rows="5" [ngModelOptions]="{standalone: true}" [(ngModel)]="consultation.statement" name="statement "
+            id="statement " placeholder="What did the patient say?" required></textarea>
         </div>
       </div>
 
@@ -68,11 +68,9 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <textarea class="form-control" style="height: 250px;" name="testsRequested" id="testsRequested" class="form-control" readonly
-            disabled>{{testRequest.testsRequested}}</textarea>
+          <textarea class="form-control" style="height: 250px;" name="testsRequested" id="testsRequested" class="form-control" readonly>{{testRequest.testsRequested}}</textarea>
         </div>
       </div>
-
     </div>
 
 

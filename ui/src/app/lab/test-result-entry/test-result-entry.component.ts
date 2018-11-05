@@ -21,6 +21,8 @@ export class TestResultEntryComponent implements OnInit {
   labSelect: string[];
   selectedVal: string[];
 
+  tests: any;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -63,5 +65,7 @@ export class TestResultEntryComponent implements OnInit {
         }
       );
   }
+
+  addTest(){}
 
 }

@@ -21,8 +21,9 @@ public class AppointmentController extends Controller {
 
         iAppointment = Json.fromJson(jsonNode, Appointment.class);
         iAppointment.save();
+        System.out.println(Json.toJson(iAppointment));
 
-        return created(Json.toJson("Created"));
+        return created(Json.toJson(iAppointment));
     }
 
     public Result getAllAppointments() {

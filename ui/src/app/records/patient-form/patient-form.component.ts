@@ -20,7 +20,6 @@ export class AddPatientComponent implements OnInit {
   }
 
   registerPatient() {
-    console.log(this.patient);
     this.patientService
       .registerPatient(this.patient)
       .subscribe(

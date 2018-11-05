@@ -7,7 +7,6 @@ create table appointments (
   appointment_id                bigserial not null,
   patient_id                    bigint not null,
   staff_id                      bigint,
-  appointment_date_time         timestamptz not null,
   appointment_date              date not null,
   appointment_time              time not null,
   time_of_appointment           timestamptz not null,
@@ -18,8 +17,8 @@ create table sessions (
   consultation_id               bigserial not null,
   patient_id                    bigint not null,
   doctor_id                     bigint not null,
-  statement                     varchar(255),
-  diagnosis                     varchar(255),
+  statement                     varchar(255) not null,
+  diagnosis                     varchar(255) not null,
   appointment_id                bigint not null,
   consultation_date_time        timestamptz not null,
   constraint pk_sessions primary key (consultation_id)
@@ -46,26 +45,6 @@ create table prescription (
   available                     varchar(255),
   prescription_date_time        timestamptz not null,
   constraint pk_prescription primary key (prescription_id)
-<<<<<<< HEAD
-);
-
-create table receipts (
-  receipt_id                    uuid not null,
-  payment_method                varchar(255) not null,
-  date_paid                     timestamptz not null,
-  constraint pk_receipts primary key (receipt_id)
-);
-
-create table receptionists (
-  uuid                          uuid not null,
-  fist_name                     varchar(255) not null,
-  last_name                     varchar(255) not null,
-  username                      varchar(255) not null,
-  password                      varchar(255) not null,
-  constraint uq_receptionists_username unique (username),
-  constraint pk_receptionists primary key (uuid)
-=======
->>>>>>> sabon
 );
 
 
@@ -78,11 +57,4 @@ drop table if exists sessions cascade;
 drop table if exists patients cascade;
 
 drop table if exists prescription cascade;
-<<<<<<< HEAD
-
-drop table if exists receipts cascade;
-
-drop table if exists receptionists cascade;
-=======
->>>>>>> sabon
 

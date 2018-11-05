@@ -8,12 +8,14 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
+import java.util.List;
+
 public class TestRequest extends Model {
     @Id
     public Long testRequestId;
 
-    @NotNull
-    public Long testsRequested;
+    @NotNull // This should really be HasMap/HashSet after a second thought.
+    public String testsRequested;
 
     @NotNull
     public Long consultationId;

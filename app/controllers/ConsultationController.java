@@ -14,14 +14,10 @@ public class ConsultationController extends Controller {
     public Result saveConsultation() {
         JsonNode jsonNode = request().body().asJson();
 
-        System.out.println(Json.toJson(jsonNode));
+        Consultation iConsultation = Json.fromJson(jsonNode, Consultation.class);
+        iConsultation.save();
 
-//        Consultation iConsultation;
-//
-//        iConsultation = Json.fromJson(jsonNode, Consultation.class);
-//        iConsultation.save();
-
-        return created(Json.toJson("Created"));
+        return created(Json.toJson(iConsultation));
     }
 
     public Result getAllConsultationByPatientId(Long patientId) {

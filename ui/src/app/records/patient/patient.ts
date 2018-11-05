@@ -1,23 +1,11 @@
 export class Patient {
-    patientId: string;
-    firstName: string;
-    middleName: string;
-    lastName: string;
-    phoneNumber: string;
-    gender: string;
-    maritalStatus: string;
-    age: number;
-    height: number;
-
-    constructor() {
-        this.patientId = '';
-        this.firstName = '';
-        this.middleName = '';
-        this.lastName = '';
-        this.phoneNumber = '';
-        this.gender = '';
-        this.maritalStatus = '';
-        this.age = 0;
-        this.height = 0;
-    }
+    public patientId: number;
+    public firstName: string;
+    public middleName: string;
+    public lastName: string;
+    public phoneNumber: string;
+    public gender: string;
+    public maritalStatus: string;
+    public age: number;
+    public height: number;
 }

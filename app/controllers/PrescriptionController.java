@@ -21,7 +21,7 @@ public class PrescriptionController extends Controller {
         iPrescription = Json.fromJson(jsonNode, Prescription.class);
         iPrescription.save();
 
-        return created(Json.toJson("Created"));
+        return created(Json.toJson(iPrescription));
     }
 
     public Result getAllPrescriptions() {

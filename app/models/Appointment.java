@@ -24,15 +24,11 @@ public class Appointment extends Model {
     public Long staffId;
 
     @NotNull
-    public LocalDateTime appointmentDateTime;
-
-    @NotNull
     public LocalDate appointmentDate;
 
     @NotNull
     public LocalTime appointmentTime;
 
-    @NotNull
     @WhenCreated
     public LocalDateTime timeOfAppointment;
 

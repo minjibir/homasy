@@ -16,8 +16,6 @@ public class PatientController extends Controller {
     public Result registerPatient() {
         JsonNode jsonNode = request().body().asJson();
 
-        System.out.println(Json.toJson(jsonNode));
-
         try {
             Patient patient = Json.fromJson(jsonNode, Patient.class);
             patient.save();
@@ -27,7 +25,7 @@ public class PatientController extends Controller {
             e.printStackTrace();
         }
 
-        return notFound("Not found.");
+        return forbidden("Not found.");
     }
 
     public Result getPatientById(Long patientId) {

@@ -21,8 +21,13 @@ public class Consultation extends Model {
     
     @NotNull
     public long doctorId;
+
+    @NotNull
     public String statement;
+
+    @NotNull
     public String diagnosis;
+    
     public long appointmentId;
 
     @WhenCreated

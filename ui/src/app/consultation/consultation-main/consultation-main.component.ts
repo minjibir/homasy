@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CHEMISTRY, MICROBIOLOGY, HAEMATOLOGY } from '../../lab/test-types';
 import { Consultation } from '../consultation/consultation';
-import { Patient } from '../../records/patient/patient';
 import { Prescription } from '../../pharmacy/prescription';
 import { TestRequest } from '../../lab/test-request';
 import { Router } from '@angular/router';
@@ -16,13 +15,13 @@ import { TestService } from '../../lab/test.service';
 })
 export class ConsultationMainComponent implements OnInit {
 
-
   chemistry = CHEMISTRY;
   microbiology = MICROBIOLOGY;
   haematology = HAEMATOLOGY;
 
+  patientId: number;
+
   consultation = new Consultation();
-  patient = new Patient();
   prescription = new Prescription();
   testRequest = new TestRequest();
 
@@ -37,33 +36,31 @@ export class ConsultationMainComponent implements OnInit {
   }
 
   submitConsultation() {
-    console.log(this.consultation);
-    console.log(this.prescription);
-    console.log(this.testRequest);
-    // if (
-    //   this.consultation.diagnosis !== null &&
-    //   this.consultation.statement !== null &&
-    //   this.prescription.prescriptionContent !== null
-    // ) {
-    //   this.consultationService
-    //     .saveConsultation(this.consultation)
-    //     .subscribe(
-    //       (res: Consultation) => {
-    //         this.consultation = res;
+    if (
+      this.consultation.diagnosis !== null &&
+      this.consultation.statement !== null &&
+      this.prescription.prescriptionContent !== null
+    ) {
+      this.consultation.patientId = this.patientId;
 
-    //         this.prescription.consultationId = this.consultation.consultationId;
-    //         this.testRequest.consultationId = this.consultation.consultationId;
+      this.consultationService
+        .saveConsultation(this.consultation)
+        .subscribe(
+          (res: Consultation) => {
+            this.consultation = res;
 
-    //         this.savePrescription();
-    //         this.requestTest();
+            this.prescription.consultationId = this.consultation.consultationId;
+            this.testRequest.consultationId = this.consultation.consultationId;
 
-    //         console.log(res)
-    //       },
-    //       err => {
-    //         console.log(err);
-    //       }
-    //     );
-    // }
+            this.savePrescription();
+            this.requestTest();
+
+          },
+          err => {
+            console.log(err);
+          }
+        );
+    }
   }
 
   savePrescription() {
@@ -72,7 +69,6 @@ export class ConsultationMainComponent implements OnInit {
       .subscribe(
         (res: Prescription) => {
           this.prescription = res;
-          console.log(res)
         },
         err => {
           console.log(err);
@@ -81,9 +77,14 @@ export class ConsultationMainComponent implements OnInit {
   }
 
   requestTest() {
+    this.testRequest.patientId = this.patientId;
+    this.testRequest.consultationId = this.consultation.consultationId;
+
     if (
-      this.testRequest.testsRequested !== null &&
-      this.testRequest.testsRequested !== ''
+      this.testRequest.patientId !== 0 &&
+      this.testRequest.consultationId !== 0 &&
+      this.testRequest.testsRequested !== '' &&
+      this.testRequest.testsRequested !== null
     ) {
       this.testService
         .makeTestRequest(this.testRequest)
@@ -100,11 +101,13 @@ export class ConsultationMainComponent implements OnInit {
   }
 
   patientdetails() {
-    this.router.navigate(['/records/patientdetails']);
+    if (this.patientId !== null && this.patientId !== undefined)
+      this.router.navigate(['/records/patientdetails', this.patientId]);
   }
 
   addappointment() {
-    this.router.navigate(['/records/addappointment']);
+    if (this.patientId !== null && this.patientId !== undefined)
+      this.router.navigate(['/records/addappointment', this.patientId]);
   }
 
 }

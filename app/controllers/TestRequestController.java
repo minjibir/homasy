@@ -20,8 +20,9 @@ public class TestRequestController extends Controller {
 
         iTestRequest = Json.fromJson(jsonNode, TestRequest.class);
         iTestRequest.save();
+        System.out.println(Json.toJson(iTestRequest));
 
-        return created(Json.toJson("Created"));
+        return created(Json.toJson(iTestRequest));
     }
 
     public Result getAllTestRequests() {

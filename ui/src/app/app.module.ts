@@ -4,7 +4,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angu
 
 import { AppComponent } from './app.component';
 
-import { AppService } from './app.service';
 import { AppHttpInterceptorService } from './http-interceptor.service';
 //////////
 //////////
@@ -45,7 +44,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RecordsModule
   ],
   providers: [
-    AppService,
     {
       multi: true,
       provide: HTTP_INTERCEPTORS,
