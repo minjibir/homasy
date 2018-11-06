@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ConsultationService } from '../../consultation/consultation/consultation.service';
 import { PatientService } from '../patient/patient.service';
 import { Patient } from '../patient/patient';
+import { Consultation } from '../../consultation/consultation/consultation';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-patient-details',
@@ -10,16 +12,23 @@ import { Patient } from '../patient/patient';
 })
 export class PatientDetailsComponent implements OnInit {
 
-  patient: Patient;
-  consultations: any;
+  patient = new Patient();
+  consultations: Consultation[];
   patientId: number;
 
   constructor(
+    private route: ActivatedRoute,
     private patientService: PatientService,
     private consultationService: ConsultationService
   ) { }
 
   ngOnInit() {
+    this.route.paramMap
+      .subscribe(
+        (params: ParamMap) => {
+          this.patientId = parseInt(params.get('id')
+          )
+        });
 
     this.getPatient();
     this.getConsultationsRecord();

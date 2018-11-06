@@ -25,6 +25,8 @@ export class ConsultationMainComponent implements OnInit {
   prescription = new Prescription();
   testRequest = new TestRequest();
 
+  pres: any;
+
   constructor(
     private router: Router,
     private consultationService: ConsultationService,
@@ -36,12 +38,14 @@ export class ConsultationMainComponent implements OnInit {
   }
 
   submitConsultation() {
+    this.testRequest.testsRequested = this.pres.toString();
+    
     if (
+      this.consultation.patientId !== undefined &&
       this.consultation.diagnosis !== null &&
       this.consultation.statement !== null &&
       this.prescription.prescriptionContent !== null
     ) {
-      this.consultation.patientId = this.patientId;
 
       this.consultationService
         .saveConsultation(this.consultation)
@@ -49,7 +53,11 @@ export class ConsultationMainComponent implements OnInit {
           (res: Consultation) => {
             this.consultation = res;
 
+            this.prescription.patientId = this.consultation.patientId;
+            this.prescription.doctorId = this.consultation.doctorId;
             this.prescription.consultationId = this.consultation.consultationId;
+
+
             this.testRequest.consultationId = this.consultation.consultationId;
 
             this.savePrescription();
@@ -77,13 +85,14 @@ export class ConsultationMainComponent implements OnInit {
   }
 
   requestTest() {
-    this.testRequest.patientId = this.patientId;
+    this.testRequest.patientId = this.consultation.patientId;
     this.testRequest.consultationId = this.consultation.consultationId;
 
     if (
       this.testRequest.patientId !== 0 &&
       this.testRequest.consultationId !== 0 &&
       this.testRequest.testsRequested !== '' &&
+      this.testRequest.testsRequested !== undefined &&
       this.testRequest.testsRequested !== null
     ) {
       this.testService
@@ -100,14 +109,20 @@ export class ConsultationMainComponent implements OnInit {
     }
   }
 
+  arrayToString(array: string[]) {
+    let values = '';
+
+    return values;
+  }
+
   patientdetails() {
-    if (this.patientId !== null && this.patientId !== undefined)
-      this.router.navigate(['/records/patientdetails', this.patientId]);
+    if (this.consultation.patientId !== null && this.consultation.patientId !== undefined)
+      this.router.navigate(['/records/patientdetails', this.consultation.patientId]);
   }
 
   addappointment() {
-    if (this.patientId !== null && this.patientId !== undefined)
-      this.router.navigate(['/records/addappointment', this.patientId]);
+    if (this.consultation.patientId !== null && this.consultation.patientId !== undefined)
+      this.router.navigate(['/records/addappointment', this.consultation.patientId]);
   }
 
 }

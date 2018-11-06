@@ -68,9 +68,10 @@ const routes: Routes = [
     path: 'pharmacy',
     component: PharmacyComponent,
     children: [
-      { path: '', component: PharmacyMainComponent },
+      // { path: '', component: PharmacyMainComponent },
+      { path: '', component: PrescriptionsComponent },
       { path: 'prescriptions', component: PrescriptionsComponent },
-      { path: 'records', component: PrescriptionsRecordComponent },
+      // { path: 'records', component: PrescriptionsRecordComponent },
     ]
   },
 
