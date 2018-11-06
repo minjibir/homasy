@@ -16,6 +16,10 @@ export class PatientService {
     return this.http.get<Patient>(url);
   }
 
+  getPatientById(patientId: number): Observable<Patient> {
+    return this.http.get<Patient>(url + '/' + patientId);
+  }
+
   registerPatient(patient: Patient): Observable<Patient> {
     return this.http.post<Patient>(url, patient);
   }

@@ -31,8 +31,8 @@ export class AppointmentComponent implements OnInit {
       );
   }
 
-  addappointment() {
-    this.router.navigate(['/records/addappointment']);
-  }
+  // addappointment() {
+  //   this.router.navigate(['/records/addappointment']);
+  // }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../appointment/appointment';
 import { AppointmentService } from '../appointment/appointment.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-appointment-form',
@@ -11,19 +12,27 @@ export class AppointmentFormComponent implements OnInit {
 
   appointment = new Appointment();
 
-  patientId: string;
+  patientId: number;
   appointmentDate: string;
   appointmentTime: string;
 
-  errorMsg = '';
-  successMsg = '';
-
-  constructor(private appointmentService: AppointmentService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private appointmentService: AppointmentService
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap
+      .subscribe(
+        (params: ParamMap) => {
+          this.patientId = parseInt(params.get('id'));
+        }
+      );
   }
 
   addAppointment() {
+    this.appointment.patientId = this.patientId;
     if (
       this.appointment.appointmentDate !== undefined &&
       this.appointment.appointmentTime !== undefined &&
@@ -34,11 +43,9 @@ export class AppointmentFormComponent implements OnInit {
         .subscribe(
           (res: Appointment) => {
             this.appointment = res
-            this.successMsg = "Appointment successfully booked."
           },
           err => {
             console.log(err);
-            this.errorMsg = "Error occured.";
           }
         );
     }

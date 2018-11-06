@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "prescription")
@@ -21,12 +22,24 @@ public class Prescription extends Model {
     public Long consultationId;
 
     @NotNull
+    public Long patientId;
+
+    @NotNull
+    public Long doctorId;
+
+    @NotNull
     public String prescriptionContent;
+
     public boolean prescriptionStatus;
+
     public String available;
 
     @WhenCreated
     public LocalDateTime prescriptionDateTime;
 
     public static Finder<Long, Prescription> find = new Finder<Long, Prescription>(Prescription.class);
+
+    public List<Prescription> currentPrescriptions() {
+        return null;
+    }
 }

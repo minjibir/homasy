@@ -40,6 +40,8 @@ create table patients (
 create table prescription (
   prescription_id               bigserial not null,
   consultation_id               bigint not null,
+  patient_id                    bigint not null,
+  doctor_id                     bigint not null,
   prescription_content          varchar(255) not null,
   prescription_status           boolean default false not null,
   available                     varchar(255),

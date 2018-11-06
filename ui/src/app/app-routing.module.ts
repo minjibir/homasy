@@ -35,8 +35,8 @@ const routes: Routes = [
       { path: 'patients', component: PatientComponent },
       { path: 'appointments', component: AppointmentComponent },
       { path: 'addpatient', component: AddPatientComponent },
-      { path: 'addappointment/:patientId', component: AppointmentFormComponent },
-      { path: 'patientdetails/:patientId', component: PatientDetailsComponent },
+      { path: 'addappointment/:id', component: AppointmentFormComponent },
+      { path: 'patientdetails/:id', component: PatientDetailsComponent },
     ]
   },
 

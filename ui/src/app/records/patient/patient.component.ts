@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./patient.component.scss']
 })
 export class PatientComponent implements OnInit {
-  patients: any
+  patients: any;
+  patientId: number;
   result: any;
 
   constructor(
@@ -22,13 +23,11 @@ export class PatientComponent implements OnInit {
       .subscribe(
         res => {
           this.patients = res;
-          console.log(res);
         },
         err => {
           console.log(err)
         }
       );
-
   }
 
   addpatient() {
@@ -36,7 +35,11 @@ export class PatientComponent implements OnInit {
   }
 
   viewPatientDetails(id: number) {
-    this.router.navigate(['/records/patientsdetails', id]);
+    this.router.navigate(['/records/patientdetails', id]);
+  }
+
+  addappointment(id: number) {
+    this.router.navigate(['/records/addappointment', id]);
   }
 
 }

@@ -6,9 +6,10 @@ export class Prescription {
     // Doctor ID,
     public consultationId: number;
     public prescriptionId: number;
-    
+    public patientId: number;
+    public doctorId: number;
     public prescriptionContent: string;
-    public prescriptionStatus?: boolean;
+    public prescriptionStatus: boolean;
     public available: string;
-    public prescriptionDateTime?: string;
+    public prescriptionDateTime: string;
 }

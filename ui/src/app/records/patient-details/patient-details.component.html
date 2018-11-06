@@ -1,3 +1,49 @@
-<p>
-  patient-details works!
-</p>
+<div class="container my-5">
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-header">
+          <p class="text-center text-primary font-weight-bold">Personal Information</p>
+        </div>
+
+        <div class="card-body">
+          <p class="font-weight-bold">Patient ID: <span class="text-right">{{patient.patientId}}</span></p>
+          <p class="font-weight-bold">First Name: <span class="text-right">{{patient.patientId}}</span></p>
+          <p class="font-weight-bold">Last Name: <span class="text-right">{{patient.patientId}}</span></p>
+          <p class="font-weight-bold">Marital Status: <span class="text-right">{{patient.patientId}}</span></p>
+          <p class="font-weight-bold">Age: <span class="text-right">{{patient.patientId}}</span></p>
+          <p class="font-weight-bold">Phone Number: <span class="text-right">{{patient.patientId}}</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card p-2 shadow-sm">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>ConsultationId</th>
+              <th>PatientId</th>
+              <th>DoctorId</th>
+              <th>Patients Complain</th>
+              <th>Diagnosis</th>
+              <th>Visit Date & Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let consultation of consultations">
+              <td>{{consultation.consultationId}}</td>
+              <td>{{consultation.patientId}}</td>
+              <td>{{consultation.doctorId}}</td>
+              <td>{{consultation.statement}}</td>
+              <td>{{consultation.diagnosis}}</td>
+              <td>{{consultation.consultationDateTime}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

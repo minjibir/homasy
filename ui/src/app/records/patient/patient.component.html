@@ -27,6 +27,8 @@
         <th>Gender</th>
         <th>Age</th>
         <th>Phone Number</th>
+        <th>Details</th>
+        <th>Appointment</th>
       </tr>
     </thead>
     <tbody>
@@ -37,6 +39,8 @@
         <td>{{patient.gender}}</td>
         <td>{{patient.age}}</td>
         <td>{{patient.phoneNumber}}</td>
+        <td><button class="btn btn-block btn-sm btn-outline-primary" (click)="viewPatientDetails(patient.patientId)">View</button></td>
+        <td><button class="btn btn-block btn-sm btn-outline-primary" (click)="addappointment(patient.patientId)">Make</button></td>
       </tr>
     </tbody>
   </table>

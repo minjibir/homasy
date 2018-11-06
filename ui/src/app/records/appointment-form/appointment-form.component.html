@@ -13,7 +13,7 @@
       </div>
 
       <form class="form">
-        <div class="form-group mb-5">
+        <div *ngIf="!patientId" class="form-group mb-5">
           <label for="patientId">Patient ID</label>
           <input type="text" class="form-control" [(ngModel)]="appointment.patientId" name="patientId" id="patientId" required>
         </div>
