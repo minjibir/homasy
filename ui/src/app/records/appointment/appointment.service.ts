@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-const url = '/api/api/appointments'
+const url = '/api/appointments'
 
 @Injectable({
   providedIn: 'root'
