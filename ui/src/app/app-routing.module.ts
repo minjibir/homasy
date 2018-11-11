@@ -21,61 +21,71 @@ import { RecordsComponent } from './records/records/records.component';
 import { PatientComponent } from './records/patient/patient.component';
 import { ConsultationMainComponent } from './consultation/consultation-main/consultation-main.component';
 
+import {AuthGuard} from './guards/auth.guard';
+
 const routes: Routes = [
 
-  { path: '', component: EntranceComponent },
-  { path: 'login', component: LoginComponent },
+{ path: '', component: EntranceComponent },
+{ path: 'login', component: LoginComponent },
 
-  // Records paths
-  {
-    path: 'records',
-    component: RecordsComponent,
-    children: [
-      { path: '', component: RecordsMainComponent },
-      { path: 'patients', component: PatientComponent },
-      { path: 'appointments', component: AppointmentComponent },
-      { path: 'addpatient', component: AddPatientComponent },
-      { path: 'addappointment/:id', component: AppointmentFormComponent },
-      { path: 'patientdetails/:id', component: PatientDetailsComponent },
-    ]
-  },
+// Records paths
+{
+  path: 'records',
+  component: RecordsComponent,
+  canActivate: [AuthGuard],
+  canActivateChild: [AuthGuard],
+  children: [
+  { path: '', component: RecordsMainComponent },
+  { path: 'patients', component: PatientComponent },
+  { path: 'appointments', component: AppointmentComponent },
+  { path: 'addpatient', component: AddPatientComponent },
+  { path: 'addappointment/:id', component: AppointmentFormComponent },
+  { path: 'patientdetails/:id', component: PatientDetailsComponent },
+  ]
+},
 
-  // Consultation paths
-  {
-    path: 'consultation',
-    component: ConsultationComponent,
-    children: [
-      { path: '', component: ConsultationMainComponent },
-    ]
-  },
+// Consultation paths
+{
+  path: 'consultation',
+  component: ConsultationComponent,
+  canActivate: [AuthGuard],
+  canActivateChild: [AuthGuard],
+  children: [
+  { path: '', component: ConsultationMainComponent },
+  ]
+},
 
-  // Lab paths
-  {
-    path: 'lab',
-    component: LabComponent,
-    children: [
-      // { path: '', component: LabMainComponent },
-      { path: '', component: TestRequestComponent },
-      { path: 'test-requests', component: TestRequestComponent },
-      // { path: 'test-results', component: TestResultComponent },
-      // { path: 'test-result-view/:id', component: TestResultViewComponent },
-      { path: 'test-result-entry/:id', component: TestResultEntryComponent },
-    ]
-  },
+// Lab paths
+{
+  path: 'lab',
+  component: LabComponent,
+  canActivate: [AuthGuard],
+  canActivateChild: [AuthGuard],
+  children: [
+  // { path: '', component: LabMainComponent },
+  { path: '', component: TestRequestComponent },
+  { path: 'test-requests', component: TestRequestComponent },
+  // { path: 'test-results', component: TestResultComponent },
+  // { path: 'test-result-view/:id', component: TestResultViewComponent },
+  { path: 'test-result-entry/:id', component: TestResultEntryComponent },
+  ]
+},
 
-  // Pharmacy paths
-  {
-    path: 'pharmacy',
-    component: PharmacyComponent,
-    children: [
-      // { path: '', component: PharmacyMainComponent },
-      { path: '', component: PrescriptionsComponent },
-      { path: 'prescriptions', component: PrescriptionsComponent },
-      // { path: 'records', component: PrescriptionsRecordComponent },
-    ]
-  },
+// Pharmacy paths
+{
+  path: 'pharmacy',
+  component: PharmacyComponent,
+  canActivate: [AuthGuard],
+  canActivateChild: [AuthGuard],
+  children: [
+  // { path: '', component: PharmacyMainComponent },
+  { path: '', component: PrescriptionsComponent },
+  { path: 'prescriptions', component: PrescriptionsComponent },
+  // { path: 'records', component: PrescriptionsRecordComponent },
+  ]
+},
 
-  { path: '**', component: PageNotFoundComponent },
+{ path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

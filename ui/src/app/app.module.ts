@@ -10,6 +10,11 @@ import { AppHttpInterceptorService } from './http-interceptor.service';
 // Nawa //
 //////////
 //////////
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+
+
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { EntranceModule } from './entrance/entrance.module';
@@ -44,10 +49,17 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RecordsModule
   ],
   providers: [
+  AuthGuard,
+  AuthService,
     {
       multi: true,
       provide: HTTP_INTERCEPTORS,
       useClass: AppHttpInterceptorService
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

@@ -57,14 +57,14 @@ export class ConsultationMainComponent implements OnInit {
         this.prescription.doctorId = this.consultation.doctorId;
         this.prescription.consultationId = this.consultation.consultationId;
 
-
         this.testRequest.consultationId = this.consultation.consultationId;
+        this.testRequest.patientId = this.consultation.patientId;
 
         this.savePrescription();
         this.requestTest();
 
       },
-      err => { console.log(err)});
+      err => { console.error(err)});
   }
 }
 
@@ -72,7 +72,7 @@ addTestType() {
   let values = '';
 
   for( let index in this.testRequestHolder) {
-    values = values + this.testRequestHolder[index].toString() + '\n';
+    values = values + this.testRequestHolder[index].toString() + ',';
   }
 
   this.testRequest.testsRequested = values;
@@ -86,15 +86,11 @@ savePrescription() {
       this.prescription = res;
     },
     err => {
-      console.log(err);
-    }
-    );
+      console.error(err);
+    });
 }
 
 requestTest() {
-  this.testRequest.patientId = this.consultation.patientId;
-  this.testRequest.consultationId = this.consultation.consultationId;
-
   if (
     this.testRequest.patientId !== 0 &&
     this.testRequest.consultationId !== 0 &&
