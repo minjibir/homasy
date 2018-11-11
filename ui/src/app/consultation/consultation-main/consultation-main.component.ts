@@ -25,104 +25,105 @@ export class ConsultationMainComponent implements OnInit {
   prescription = new Prescription();
   testRequest = new TestRequest();
 
-  pres: any;
+  testRequestHolder: string[];
 
   constructor(
     private router: Router,
     private consultationService: ConsultationService,
     private prescriptionService: PrescriptionService,
     private testService: TestService,
-  ) { }
+    ) { }
 
   ngOnInit() {
   }
 
   submitConsultation() {
-    this.testRequest.testsRequested = this.pres.toString();
-    
+    this.addTestType();
+    // 
     if (
       this.consultation.patientId !== undefined &&
       this.consultation.diagnosis !== null &&
       this.consultation.statement !== null &&
       this.prescription.prescriptionContent !== null
-    ) {
+      ) {
 
       this.consultationService
-        .saveConsultation(this.consultation)
-        .subscribe(
-          (res: Consultation) => {
-            this.consultation = res;
+    .saveConsultation(this.consultation)
+    .subscribe(
+      (res: Consultation) => {
+        this.consultation = res;
 
-            this.prescription.patientId = this.consultation.patientId;
-            this.prescription.doctorId = this.consultation.doctorId;
-            this.prescription.consultationId = this.consultation.consultationId;
+        this.prescription.patientId = this.consultation.patientId;
+        this.prescription.doctorId = this.consultation.doctorId;
+        this.prescription.consultationId = this.consultation.consultationId;
 
 
-            this.testRequest.consultationId = this.consultation.consultationId;
+        this.testRequest.consultationId = this.consultation.consultationId;
 
-            this.savePrescription();
-            this.requestTest();
+        this.savePrescription();
+        this.requestTest();
 
-          },
-          err => {
-            console.log(err);
-          }
-        );
+      },
+      err => { console.log(err)});
+  }
+}
+
+addTestType() {
+  let values = '';
+
+  for( let index in this.testRequestHolder) {
+    values = values + this.testRequestHolder[index].toString() + '\n';
+  }
+
+  this.testRequest.testsRequested = values;
+}
+
+savePrescription() {
+  this.prescriptionService
+  .addPrescription(this.prescription)
+  .subscribe(
+    (res: Prescription) => {
+      this.prescription = res;
+    },
+    err => {
+      console.log(err);
     }
-  }
+    );
+}
 
-  savePrescription() {
-    this.prescriptionService
-      .addPrescription(this.prescription)
-      .subscribe(
-        (res: Prescription) => {
-          this.prescription = res;
-        },
-        err => {
-          console.log(err);
-        }
-      );
-  }
+requestTest() {
+  this.testRequest.patientId = this.consultation.patientId;
+  this.testRequest.consultationId = this.consultation.consultationId;
 
-  requestTest() {
-    this.testRequest.patientId = this.consultation.patientId;
-    this.testRequest.consultationId = this.consultation.consultationId;
-
-    if (
-      this.testRequest.patientId !== 0 &&
-      this.testRequest.consultationId !== 0 &&
-      this.testRequest.testsRequested !== '' &&
-      this.testRequest.testsRequested !== undefined &&
-      this.testRequest.testsRequested !== null
+  if (
+    this.testRequest.patientId !== 0 &&
+    this.testRequest.consultationId !== 0 &&
+    this.testRequest.testsRequested !== '' &&
+    this.testRequest.testsRequested !== undefined &&
+    this.testRequest.testsRequested !== null
     ) {
-      this.testService
-        .makeTestRequest(this.testRequest)
-        .subscribe(
-          (res: TestRequest) => {
-            this.testRequest = res;
-            console.log(res)
-          },
-          err => {
-            console.log(err);
-          }
-        );
-    }
-  }
+    this.testService
+  .makeTestRequest(this.testRequest)
+  .subscribe(
+    (res: TestRequest) => {
+      this.testRequest = res;
+      console.info(res)
+    },
+    err => {
+      console.error(err);
+    });
+}
+}
 
-  arrayToString(array: string[]) {
-    let values = '';
 
-    return values;
-  }
+patientdetails() {
+  if (this.consultation.patientId !== null && this.consultation.patientId !== undefined)
+    this.router.navigate(['/records/patientdetails', this.consultation.patientId]);
+}
 
-  patientdetails() {
-    if (this.consultation.patientId !== null && this.consultation.patientId !== undefined)
-      this.router.navigate(['/records/patientdetails', this.consultation.patientId]);
-  }
-
-  addappointment() {
-    if (this.consultation.patientId !== null && this.consultation.patientId !== undefined)
-      this.router.navigate(['/records/addappointment', this.consultation.patientId]);
-  }
+addappointment() {
+  if (this.consultation.patientId !== null && this.consultation.patientId !== undefined)
+    this.router.navigate(['/records/addappointment', this.consultation.patientId]);
+}
 
 }

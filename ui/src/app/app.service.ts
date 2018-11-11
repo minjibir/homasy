@@ -11,8 +11,8 @@ import { Observable } from 'rxjs/index';
  */
 @Injectable()
 export class AppService {
-  private serviceUrl = '/api/summary';
-  private dataPostTestUrl = '/api/postTest';
+  // private serviceUrl = '/api/summary';
+  // private dataPostTestUrl = '/api/postTest';
 
   constructor(private http: HttpClient) {
   }
@@ -20,16 +20,16 @@ export class AppService {
   /**
    * Makes a http get request to retrieve the welcome message from the backend service.
    */
-  public getWelcomeMessage() {
-    return this.http.get(this.serviceUrl).pipe(
-      map(response => response)
-    );
-  }
+  // public getWelcomeMessage() {
+  //   return this.http.get(this.serviceUrl).pipe(
+  //     map(response => response)
+  //   );
+  // }
 
   /**
    * Makes a http post request to send some data to backend & get response.
    */
-  public sendData(): Observable<any> {
-    return this.http.post(this.dataPostTestUrl, {});
-  }
+  // public sendData(): Observable<any> {
+  //   return this.http.post(this.dataPostTestUrl, {});
+  // }
 }

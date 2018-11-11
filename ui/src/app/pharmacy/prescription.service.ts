@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Prescription } from './prescription';
 
-const url = '/api/prescriptions';
+const url = '/api/api/prescriptions';
 
 @Injectable({
   providedIn: 'root'

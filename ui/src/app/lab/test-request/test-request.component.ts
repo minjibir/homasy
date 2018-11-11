@@ -20,24 +20,24 @@ export class TestRequestComponent implements OnInit {
   constructor(
     private router: Router,
     private testService: TestService
-  ) { }
+    ) { }
 
   ngOnInit() {
     this.testService
-      .getTestRequests()
-      .subscribe(
-        (res: TestRequest[]) => {
-          this.testRequests = res;
-        },
-        err => {
-          console.log(err)
-        }
+    .getTestRequests()
+    .subscribe(
+      (res: TestRequest[]) => {
+        this.testRequests = res;
+      },
+      err => {
+        console.log(err)
+      }
       );
   }
 
-  // provideTestResult(testRequestId: number) {
-  //   this.router.navigate(['patient-details', testRequestId]);
-  // }
+  provideTestResult(testRequestId: number) {
+    this.router.navigate(['patient-details', testRequestId]);
+  }
 
   viewTestResult(testRequestId: number) {
     this.router.navigate(['test-result-entry', testRequestId]);
@@ -45,15 +45,14 @@ export class TestRequestComponent implements OnInit {
 
   searchRequestByPatient() {
     this.testService
-      .getTestRequestsByPatient(this.patientId)
-      .subscribe(
-        (res: TestRequest[]) => {
-          this.testRequests = res;
-        },
-        err => {
-          console.log(err)
-        }
+    .getTestRequestsByPatient(this.patientId)
+    .subscribe(
+      (res: TestRequest[]) => {
+        this.testRequests = res;
+      },
+      err => {
+        console.log(err)
+      }
       );
   }
-
 }
