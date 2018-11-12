@@ -14,9 +14,9 @@ public class Secured extends Security.Authenticator {
     @Override
     public String getUsername(Context ctx) {
         List<String> headers = ctx
-                .request()
-                .getHeaders()
-                .getAll(AUTH_TOKEN_HEADER);
+        .request()
+        .getHeaders()
+        .getAll(AUTH_TOKEN_HEADER);
 
         if (headers != null && !headers.isEmpty()) {
             String token = headers.get(0);
@@ -26,7 +26,7 @@ public class Secured extends Security.Authenticator {
                 Staff staff = Staff.find.byId(uuid);
                 if (staff != null) {
                     ctx.args.put("uuid", uuid);
-//                    ctx.args.put("role", staff.role);
+                    ctx.args.put("role", staff.role);
                     return uuid.toString();
                 }
             } catch (NumberFormatException e) {

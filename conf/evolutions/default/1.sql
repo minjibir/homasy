@@ -49,6 +49,29 @@ create table prescription (
   constraint pk_prescription primary key (prescription_id)
 );
 
+create table staff (
+  uuid                          bigserial not null,
+  first_name                    varchar(255) not null,
+  last_name                     varchar(255) not null,
+  role                          varchar(255) not null,
+  username                      varchar(255) not null,
+  password                      varchar(255) not null,
+  constraint uq_staff_username unique (username),
+  constraint pk_staff primary key (uuid)
+);
+
+create table test_request (
+  test_request_id               bigserial not null,
+  tests_requested               varchar(255) not null,
+  consultation_id               bigint not null,
+  patient_id                    bigint not null,
+  doctor_id                     bigint not null,
+  test_result                   varchar(255),
+  tested                        boolean default false not null,
+  date_time_requested           timestamptz not null,
+  constraint pk_test_request primary key (test_request_id)
+);
+
 
 # --- !Downs
 
@@ -59,4 +82,8 @@ drop table if exists sessions cascade;
 drop table if exists patients cascade;
 
 drop table if exists prescription cascade;
+
+drop table if exists staff cascade;
+
+drop table if exists test_request cascade;
 

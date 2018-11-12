@@ -11,6 +11,7 @@ export class TestRequest {
 
     public testRequestId: number;
     public testsRequested: string;
+    public testResult: string;
     public tested: boolean;
     public dateTimeRequested: string;
 }

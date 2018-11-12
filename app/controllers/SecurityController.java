@@ -17,7 +17,6 @@ public class SecurityController extends Controller{
 
         JsonNode jsonNode = request().body().asJson();
         Staff staff = Json.fromJson(jsonNode, Staff.class);
-
         if (staff != null && staff.username != null && staff.password != null) {
 
             staff = Staff

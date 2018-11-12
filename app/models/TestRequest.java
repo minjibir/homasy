@@ -4,13 +4,16 @@ import io.ebean.Finder;
 import io.ebean.Model;
 import io.ebean.annotation.WhenCreated;
 
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 import java.util.List;
 
+@Entity
+@Table( name = "test_request")
 public class TestRequest extends Model {
+    
     @Id
     public Long testRequestId;
 
@@ -25,6 +28,8 @@ public class TestRequest extends Model {
 
     @NotNull
     public Long doctorId;
+
+    public String testResult;
 
     public boolean tested;
 

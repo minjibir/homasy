@@ -59,6 +59,7 @@ export class ConsultationMainComponent implements OnInit {
 
         this.testRequest.consultationId = this.consultation.consultationId;
         this.testRequest.patientId = this.consultation.patientId;
+        this.testRequest.doctorId = this.consultation.doctorId;
 
         this.savePrescription();
         this.requestTest();

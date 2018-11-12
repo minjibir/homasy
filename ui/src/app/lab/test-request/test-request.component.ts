@@ -12,6 +12,7 @@ import { TestResult } from '../test-result';
 export class TestRequestComponent implements OnInit {
 
   testRequests: TestRequest[];
+  testResult: string;
   patientId: number;
   route: any;
 
@@ -53,6 +54,16 @@ export class TestRequestComponent implements OnInit {
       err => {
         console.log(err)
       }
+      );
+  }
+
+  updateResult(testRequest: TestRequest) {
+    testRequest.tested = true;
+    this.testService
+    .update(testRequest)
+    .subscribe(
+      (res: TestRequest) => testRequest = res,
+      err => console.error(err)
       );
   }
 }

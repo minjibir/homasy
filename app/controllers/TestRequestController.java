@@ -20,8 +20,6 @@ public class TestRequestController extends Controller {
 
         iTestRequest = Json.fromJson(jsonNode, TestRequest.class);
         iTestRequest.save();
-        System.out.println(Json.toJson(iTestRequest));
-
         return created(Json.toJson(iTestRequest));
     }
 
@@ -42,7 +40,7 @@ public class TestRequestController extends Controller {
 
         if (TestRequest.find.byId(iTestRequest.testRequestId) != null) {
             iTestRequest.update();
-            return ok(Json.toJson("Updated!"));
+            return ok(Json.toJson(iTestRequest));
         }
 
         return notFound(Json.toJson("Not found"));

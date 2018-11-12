@@ -44,4 +44,8 @@ export class TestService {
     return this.http.post<TestRequest>(requestUrl, testRequest);
   }
 
+  update(testRequest: TestRequest): Observable<TestRequest> {
+    return this.http.put<TestRequest>(requestUrl, testRequest);
+  }
+
 }

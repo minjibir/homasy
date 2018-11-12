@@ -20,8 +20,7 @@ public class StaffController extends Controller {
 
         iStaff = Json.fromJson(jsonNode, Staff.class);
         iStaff.save();
-
-        return created(Json.toJson("Created"));
+        return created(Json.toJson(iStaff));
     }
 
     public Result getAllStaffs() {

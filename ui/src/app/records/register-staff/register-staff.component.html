@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card col-md-8 p-5 bg-light shadow">
+
+      <div class="invalid-feedback text-center">
+        <p class=" text-warning">{{errorMsg}}</p>
+      </div>
+
+      <div class="valid-feedback text-center">
+        <p class=" text-success">{{successMsg}}</p>
+      </div>
+
+      <form [formGroup]="staffFormGroup" (ngSubmit)="registerStaff()">
+        <div class="form-row mb-5">
+          <div class="col-md-6">
+            <input type="text" class="form-control" formControlName="firstName" placeholder="First name">
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <input type="text" class="form-control" formControlName="lastName" placeholder="Last name">
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row mb-5">
+          <div class="col-md-6">
+            <input type="text" class="form-control" formControlName="username" placeholder="Username">
+          </div>
+
+          <div class="col-md-6">
+            <select class="form-control" formControlName="role">
+              <option [ngValue]="null" selected>--Select Role--</option>
+              <option>Record Officer</option>
+              <option>Doctor</option>
+              <option>Pharmacist</option>
+              <option>Lab Technician</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row mb-5">
+          <div class="col-md-6">
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <input type="password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Confirm Password">
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        <input type="submit" [hidden]="!staffFormGroup.valid" [disabled]="password!=confirmPassword" class="btn btn-primary px-5" value="Register">
+      </form>
+
+    </div>
+  </div>
+</div>

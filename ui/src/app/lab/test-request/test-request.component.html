@@ -10,7 +10,7 @@
   <div class="row py-3 mx-md-0">
     <form class="form-inline">
       <input type="number" class="form-control mr-2" [(ngModel)]="patientId" name="patientId" id="patientId" placeholder="Patient's ID"
-        aria-label="Search">
+      aria-label="Search">
       <button class="btn btn-outline-primary" (click)="searchRequestByPatient()">Search</button>
     </form>
   </div>
@@ -19,24 +19,22 @@
     <thead>
       <tr>
         <th>Request ID</th>
-        <th>Tests Requested</th>
         <th>Patient ID</th>
+        <th>Tests Requested</th>
         <th>Date Requested</th>
-        <th>Tested</th>
+        <th>Provider Result</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <!-- <tr *ngFor="let test of tests">
+      <tr *ngFor="let testRequest of testRequests">
         <td>{{testRequest.testRequestId}}</td>
-        <td>{{testRequest.testsRequested}}</td>
         <td>{{testRequest.patientId}}</td>
+        <td>{{testRequest.testsRequested}}</td>
         <td>{{testRequest.dateTimeRequested}}</td>
-        <td>{{testRequest.tested}}</td>
-        <td>
-          <button class="btn btn-sm btn-outline-primary" (click)="viewTestResult(testRequest.testRequestId)">View</button>
-        </td> -->
-      <!-- </tr> -->
+        <td><input type="test" [(ngModel)]="testRequest.testResult" name="testResult" class="form-control"></td>
+        <td><button class="btn btn-sm btn-outline-primary" (click)="updateResult(testRequest)">Done</button></td>
+      </tr>
     </tbody>
   </table>
 </div>

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { RecordsComponent } from './records/records.component';
 import { RecordsMainComponent } from './records-main/records-main.component';
 import { RecordsSideNavComponent } from './records-side-nav/records-side-nav.component';
@@ -9,14 +12,15 @@ import { AppointmentFormComponent } from './appointment-form/appointment-form.co
 import { AddPatientComponent } from './patient-form/patient-form.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { PatientComponent } from './patient/patient.component';
+import { RegisterStaffComponent } from './register-staff/register-staff.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     RecordsComponent,
@@ -27,7 +31,8 @@ import { PatientComponent } from './patient/patient.component';
     AppointmentComponent,
     AppointmentFormComponent,
     AddPatientComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    RegisterStaffComponent
   ]
 })
 export class RecordsModule { }

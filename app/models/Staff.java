@@ -3,13 +3,17 @@ package models;
 import io.ebean.Finder;
 import io.ebean.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Optional;
 
-
+@Entity
+@Table(name = "staff")
 public class Staff extends Model {
+    
     @Id
     public Long uuid;
 
