@@ -2,14 +2,6 @@
   <div class="row justify-content-center">
     <div class="card col-md-8 p-5 bg-light shadow">
 
-      <div class="invalid-feedback text-center">
-        <p class=" text-warning">{{errorMsg}}</p>
-      </div>
-
-      <div class="valid-feedback text-center">
-        <p class=" text-success">{{successMsg}}</p>
-      </div>
-
       <form [formGroup]="staffFormGroup" (ngSubmit)="registerStaff()">
         <div class="form-row mb-5">
           <div class="col-md-6">

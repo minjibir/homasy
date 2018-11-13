@@ -6,8 +6,12 @@ import play.libs.Json;
 import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
+
 import models.Consultation;
 
+
+@Security.Authenticated(Secured.class)
 public class ConsultationController extends Controller {
 
     @BodyParser.Of(BodyParser.Json.class)

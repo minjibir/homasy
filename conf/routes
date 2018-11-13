@@ -42,7 +42,8 @@ POST          /api/testrequests               controllers.TestRequestController.
 PUT           /api/testrequests               controllers.TestRequestController.updateTestRequest
 
 # Login controller
-POST          /api/login                     controllers.SecurityController.login
+POST          /api/login                      controllers.SecurityController.login
+POST          /admin/init                     controllers.SecurityController.init
 
 
 # Serve static assets under public directory

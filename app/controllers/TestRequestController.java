@@ -6,11 +6,14 @@ import play.libs.Json;
 import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 
 import java.util.UUID;
 
 import models.TestRequest;
 
+
+@Security.Authenticated(Secured.class)
 public class TestRequestController extends Controller {
 
     @BodyParser.Of(BodyParser.Json.class)

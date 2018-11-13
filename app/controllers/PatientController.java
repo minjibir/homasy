@@ -6,7 +6,10 @@ import play.libs.Json;
 import play.mvc.BodyParser;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 
+
+@Security.Authenticated(Secured.class)
 public class PatientController extends Controller {
     public static Result deleteAppointment(Long id) {
         return play.mvc.Results.TODO;

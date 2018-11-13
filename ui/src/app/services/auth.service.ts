@@ -14,8 +14,8 @@ export class AuthService {
 
 	constructor(private httpClient: HttpClient, private router: Router) { }
 
-	login(user: User): Observable<string> {
-		return this.httpClient.post<string>(url, user);
+	login(user: User): Observable<any> {
+		return this.httpClient.post<any>(url, user);
 	}
 
 	logout() {

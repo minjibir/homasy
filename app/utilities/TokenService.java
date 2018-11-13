@@ -59,10 +59,10 @@ public class TokenService {
                     .setSigningKey(DatatypeConverter.parseBase64Binary(apiKey))
                     .parseClaimsJws(jwt).getBody();
 
-            System.out.println("ID: " + claims.getId());
-            System.out.println("Subject: " + claims.getSubject());
-            System.out.println("Issuer: " + claims.getIssuer());
-            System.out.println("Expiration: " + claims.getExpiration());
+            // System.out.println("ID: " + claims.getId());
+            // System.out.println("Subject: " + claims.getSubject());
+            // System.out.println("Issuer: " + claims.getIssuer());
+            // System.out.println("Expiration: " + claims.getExpiration());
 
             return claims.getId();
         } catch (Exception e) {
