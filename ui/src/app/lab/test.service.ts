@@ -21,7 +21,7 @@ export class TestService {
   }
 
   getTestRequestsByPatient(patientId: number): Observable<any> {
-    return this.http.get(requestUrl + '/' + patientId);
+    return this.http.get<TestRequest[]>(requestUrl + '/' + patientId);
   }
 
   getTestResultsByPatient(patientId: number): Observable<any> {

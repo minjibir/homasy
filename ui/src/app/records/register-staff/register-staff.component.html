@@ -25,12 +25,12 @@
           </div>
 
           <div class="col-md-6">
-            <select class="form-control" formControlName="role">
+            <select class="form-control" formControlName="unit">
               <option [ngValue]="null" selected>--Select Role--</option>
-              <option>Record Officer</option>
-              <option>Doctor</option>
-              <option>Pharmacist</option>
-              <option>Lab Technician</option>
+              <option [ngValue]="records">records</option>
+              <option [ngValue]="consultation">consultation</option>
+              <option [ngValue]="pharmacy">pharmacy</option>
+              <option [ngValue]="lab">lab</option>
             </select>
           </div>
         </div>

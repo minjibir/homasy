@@ -21,7 +21,7 @@ export class RegisterStaffComponent implements OnInit {
     this.staffFormGroup = this.formBuilder.group({
       firstName: [null, [Validators.required, Validators.minLength(3)]],
       lastName: [null, [Validators.required, Validators.minLength(3)]],
-      role: [null, [Validators.required]],
+      unit: [null, [Validators.required]],
       username: [null, [Validators.required, Validators.minLength(8)]],
       password: [null, [Validators.required, Validators.minLength(8)]]
     });

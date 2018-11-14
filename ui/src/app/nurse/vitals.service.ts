@@ -16,8 +16,8 @@ export class VitalsService {
     return this.http.get(url);
   }
 
-  getVitalsByPatientId(vitalsId: number): Observable<any> {
-    return this.http.get(url + '/' + vitalsId);
+  getVitalsByPatientId(patientId: number): Observable<any> {
+    return this.http.get<Vitals[]>(url + '/' + patientId);
   }
 
   saveVitals(vitals: Vitals): Observable<Vitals> {

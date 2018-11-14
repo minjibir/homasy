@@ -11,8 +11,7 @@ export class AddPatientComponent implements OnInit {
 
   patient: Patient = new Patient();
 
-  errorMsg = null;
-  successMsg = null;
+  response: any;
 
   constructor(private patientService: PatientService) { }
 
@@ -24,12 +23,12 @@ export class AddPatientComponent implements OnInit {
       .registerPatient(this.patient)
       .subscribe(
         (res: Patient) => {
-          this.patient = res
-          this.successMsg = "Patient successfully registered."
+          this.response = "Patient successfully registered."
+          this.patient = null;
         },
         err => {
-          console.log(err);
-          this.errorMsg = "Error occured.";
+          console.error(err);
+          this.response = "Error occured.";
         }
       );
   }

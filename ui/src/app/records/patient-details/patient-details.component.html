@@ -1,6 +1,7 @@
 <div class="container my-5">
 
   <div class="row">
+
     <div class="col-md-4">
       <div class="card shadow-sm">
         <div class="card-header">
@@ -20,31 +21,79 @@
     </div>
 
     <div class="col-md-8">
-      <div class="card p-2 shadow-sm">
+      <!-- Previous Visit -->
+      <div class="card mb-4 p-2 shadow-sm">
+        <p class="text-primary text-center font-weight-bold">CONSULTATIONS</p>
         <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th>ConsultationId</th>
               <th>PatientId</th>
-              <th>DoctorId</th>
               <th>Patients Complain</th>
               <th>Diagnosis</th>
-              <th>Visit Date & Time</th>
+              <th>Date/Time</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let consultation of consultations">
               <td>{{consultation.consultationId}}</td>
               <td>{{consultation.patientId}}</td>
-              <td>{{consultation.doctorId}}</td>
-              <td>{{consultation.statement}}</td>
+              <td>{{consultation.complaint}}</td>
               <td>{{consultation.diagnosis}}</td>
               <td>{{consultation.consultationDateTime}}</td>
             </tr>
           </tbody>
         </table>
       </div>
+
+      <!-- Vitals -->
+      <div class="card mb-4 p-2 shadow-sm">
+        <p class="text-primary text-center font-weight-bold">VITALS</p>
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Blood Pressure</th>
+              <th>Pulse Rate</th>
+              <th>Temperature</th>
+              <th>Weight</th>
+              <th>Height</th>
+              <th>Date Taken</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let vital of vitals">
+              <th>{{vital.bloodPressure}}</th>
+              <th>{{vital.pulseRate}}</th>
+              <th>{{vital.temperature}}</th>
+              <th>{{vital.weight}}</th>
+              <th>{{vital.height}}</th>
+              <th>{{vital.dateTaken}}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Test Reults -->
+      <div class="card mb-4 p-2 shadow-sm">
+        <p class="text-primary text-center font-weight-bold">TEST RESULTS</p>
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Tests Requested</th>
+              <th>Test Result</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let test of tests">
+              <th>{{test.testsRequested}}</th>
+              <th>{{test.testResult}}</th>
+              <th>{{test.dateTimeRequested}}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
-
 </div>

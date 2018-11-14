@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 mt-3 pb-2 mb-">
+	<h1 class="h2">Staff</h1>
+	<div>
+		<a class="btn btn-sm btn-primary mr-2" routerLink="/records/registerstaff">Register Staff</a>
+	</div>
+</div>
+
+<div class="table-responsive">
+
+	<table class="table table-striped table-sm">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Unit</th>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let staff of staffs">
+				<td><input type="text" class="form-control" [(ngModel)]="staff.firstName"></td>
+				<td><input type="text" class="form-control" [(ngModel)]="staff.lastName"></td>
+				<td><input type="text" class="form-control" [(ngModel)]="staff.unit"></td>
+				<td><input type="text" class="form-control" [(ngModel)]="staff.username"></td>
+				<td><input type="password" class="form-control" [(ngModel)]="staff.password"></td>
+				<td>
+					<button class="btn btn-block btn-sm btn-outline-primary" (click)="updateStaff(staff)">Update</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

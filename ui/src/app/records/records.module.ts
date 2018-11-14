@@ -14,6 +14,7 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
 import { RouterModule } from '@angular/router';
 import { PatientComponent } from './patient/patient.component';
 import { RegisterStaffComponent } from './register-staff/register-staff.component';
+import { StaffListComponent } from './staff-list/staff-list.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { RegisterStaffComponent } from './register-staff/register-staff.componen
     AppointmentFormComponent,
     AddPatientComponent,
     PatientDetailsComponent,
-    RegisterStaffComponent
+    RegisterStaffComponent,
+    StaffListComponent
   ]
 })
 export class RecordsModule { }

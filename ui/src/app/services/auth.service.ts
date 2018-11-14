@@ -20,6 +20,9 @@ export class AuthService {
 
 	logout() {
 		sessionStorage.removeItem('token');
+		sessionStorage.removeItem('unit');
+		sessionStorage.removeItem('username');
+		
 		this.router.navigate(['/login']);
 	}
 

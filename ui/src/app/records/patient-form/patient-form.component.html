@@ -4,12 +4,8 @@
 
       <h4 class="text-center mb-5">NEW PATIENT REGISTRATION</h4>
 
-      <div class="invalid-feedback text-center">
-        <p class=" text-warning">{{errorMsg}}</p>
-      </div>
-
-      <div class="valid-feedback text-center">
-        <p class=" text-success">{{successMsg}}</p>
+      <div *ngIf="response" class="alert alert-info text-center font-weight-bold">
+        {{response}}
       </div>
 
       <form>
@@ -52,23 +48,21 @@
         <div class="form-row">
           <div class="col-md-6 mb-3">
             <label for="gender">Gender</label>
-            <input type="text" class="form-control" name="gender" id="gender" [(ngModel)]="patient.gender" placeholder="Gender">
-            <div class="valid-feedback">
-              Looks good!
-            </div>
+            <select class="form-control" name="gender" id="gender" [(ngModel)]="patient.gender" placeholder="Gender">
+              <option [ngValue]="Male">Male</option>
+              <option [ngValue]="Female">Female</option>
+            </select>
           </div>
 
           <div class="col-md-6 mb-3">
             <label for="maritalStatus">Marital Status</label>
             <select class="form-control" name="maritalStatus" id="maritalStatus" [(ngModel)]="patient.maritalStatus" placeholder="Marital Status" required>
-              <option>Single</option>
-              <option>Married</option>
-              <option>Divorced</option>
-              <option>Widowe</option>
+              <option [ngValue]="Single">Single</option>
+              <option [ngValue]="Married">Married</option>
+              <option [ngValue]="Divorced">Divorced</option>
+              <option [ngValue]="Widow">Widow</option>
             </select>
-            <div class="invalid-feedback">
-              Please provide a valid state.
-            </div>
+            
           </div>
         </div>
 
@@ -82,8 +76,8 @@
           </div>
 
           <div class="col-md-6 mb-3">
-            <label for="height">Height (CM)</label>
-            <input type="number" class="form-control" name="height" id="height" [(ngModel)]="patient.height" placeholder="Height" required>
+            <label for="height">Date of Birth</label>
+            <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth" [(ngModel)]="patient.dateOfBirth" placeholder="Height" required>
             <div class="valid-feedback">
               Looks good!
             </div>

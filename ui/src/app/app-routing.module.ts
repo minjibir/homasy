@@ -19,12 +19,18 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RecordsComponent } from './records/records/records.component';
 import { PatientComponent } from './records/patient/patient.component';
+import { StaffListComponent } from './records/staff-list/staff-list.component';
 import { RegisterStaffComponent } from './records/register-staff/register-staff.component';
 import { ConsultationMainComponent } from './consultation/consultation-main/consultation-main.component';
 import { NurseComponent } from './nurse/nurse/nurse.component';
 import { NurseMainComponent } from './nurse/nurse-main/nurse-main.component';
 
 import { AuthGuard } from './guards/auth.guard';
+import { RecordsGuard } from './guards/records.guard';
+import { LabGuard } from './guards/lab.guard';
+import { ConsultationGuard } from './guards/consultation.guard';
+import { PharmacyGuard } from './guards/pharmacy.guard';
+import { NurseGuard } from './guards/nurse.guard';
 
 const routes: Routes = [
 
@@ -36,7 +42,7 @@ const routes: Routes = [
 {
   path: 'records',
   component: RecordsComponent,
-  // canActivate: [AuthGuard],
+  // canActivate: [AuthGuard, RecordsGuard],
   children: [
   { path: '', component: RecordsMainComponent },
   { path: 'patients', component: PatientComponent },
@@ -44,6 +50,7 @@ const routes: Routes = [
   { path: 'addpatient', component: AddPatientComponent },
   { path: 'addappointment/:id', component: AppointmentFormComponent },
   { path: 'patientdetails/:id', component: PatientDetailsComponent },
+  { path: 'staffs', component: StaffListComponent},
   { path: 'registerstaff', component: RegisterStaffComponent },
   ]
 },
@@ -52,7 +59,7 @@ const routes: Routes = [
 {
   path: 'consultation',
   component: ConsultationComponent,
-  // canActivate: [AuthGuard],
+  // canActivate: [AuthGuard, ConsultationGuard],
   children: [
   { path: '', component: ConsultationMainComponent },
   ]
@@ -62,7 +69,7 @@ const routes: Routes = [
 {
   path: 'lab',
   component: LabComponent,
-  // canActivate: [AuthGuard],
+  // canActivate: [AuthGuard, LabGuard],
   children: [
   // { path: '', component: LabMainComponent },
   { path: '', component: TestRequestComponent },
@@ -77,7 +84,7 @@ const routes: Routes = [
 {
   path: 'pharmacy',
   component: PharmacyComponent,
-  // canActivate: [AuthGuard],
+  // canActivate: [AuthGuard, PharmacyGuard],
   children: [
   // { path: '', component: PharmacyMainComponent },
   { path: '', component: PrescriptionsComponent },
@@ -88,9 +95,9 @@ const routes: Routes = [
 
 // Nurse paths
 {
-  path: 'nurses',
+  path: 'nurse',
   component: NurseComponent,
-  // canActivate: [AuthGuard],
+  // canActivate: [AuthGuard, NurseGuard],
   children: [
   { path: '', component: NurseMainComponent }
   ]

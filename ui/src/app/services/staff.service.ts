@@ -19,4 +19,8 @@ export class StaffService {
   registerStaff(staff: Staff): Observable<Staff> {
     return this.http.post<Staff>(url, staff);
   }
+
+  updateStaff(staff: Staff): Observable<Staff> {
+    return this.http.put<Staff>(url, staff);
+  }
 }

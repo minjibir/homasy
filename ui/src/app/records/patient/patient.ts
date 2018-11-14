@@ -6,6 +6,6 @@ export class Patient {
     public phoneNumber: string;
     public gender: string;
     public age: number;
-    public dateBirth: string;
+    public dateOfBirth: string;
     public maritalStatus: string;
 }
