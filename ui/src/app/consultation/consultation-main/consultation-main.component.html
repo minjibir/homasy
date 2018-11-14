@@ -10,6 +10,8 @@
       <input type="number" [(ngModel)]="consultation.patientId" name="patientId" id="patientId" class="form-control mr-5" placeholder="Patient's ID">
       <div class="float-right">
         <button class="btn btn-sm btn-primary mr-2" (click)="patientdetails()">Patients Record</button>
+        <button class="btn btn-sm btn-primary mr-2" (click)="viewVitals()">Vitals</button>
+        <button class="btn btn-sm btn-primary mr-2" (click)="viewTestResult()">Test Results</button>
         <button class="btn btn-sm btn-primary" (click)="addappointment()">Schedule Follow up</button>
       </div>
     </div>
@@ -19,8 +21,26 @@
     <div class="form-row">
       <div class="col-md-6">
         <div class="form-group mb-4">
-          <label class="h4 text-center text-primary" for="statement">Patient Statement</label>
-          <textarea class="form-control " rows="5" [(ngModel)]="consultation.statement" name="statement " id="statement " placeholder="What did the patient say?"
+          <label class="h4 text-center text-primary" for="statement">Patient Complaint</label>
+          <textarea class="form-control " rows="5" [(ngModel)]="consultation.complaint" name="complaint" id="complaint" placeholder="What did the patient say?"
+          required></textarea>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group mb-2">
+          <label class="h4 text-center text-primary" for="diagnosis">Investigation</label>
+          <textarea class="form-control " rows="5" [(ngModel)]="consultation.investigation" name="investigation" id="investigation " placeholder="What did you conclude as a doctor?"
+          required></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="form-group mb-4">
+          <label class="h4 text-center text-primary" for="statement">Findings</label>
+          <textarea class="form-control " rows="5" [(ngModel)]="consultation.findings" name="findings" id="findings" placeholder="What did the patient say?"
           required></textarea>
         </div>
       </div>
@@ -78,6 +98,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <textarea class="form-control" style="height: 250px;" name="testsRequested" id="testsRequested" class="form-control" readonly>{{testRequestHolder}}</textarea>
+            <button class="btn btn-block btn-sm btn-danger" (click)="testRequestHolder=''">delete</button>
           </div>
         </div>
       </div>

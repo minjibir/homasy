@@ -24,7 +24,7 @@ public class Staff extends Model {
     public String lastName;
 
     @NotNull
-    public String role;
+    public String unit;
 
     @Column(nullable = false, unique = true)
     public String username;

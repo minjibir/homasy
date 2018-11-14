@@ -23,15 +23,16 @@ public class Consultation extends Model {
     public long doctorId;
 
     @NotNull
-    public String statement;
+    public String complaint;
 
-    @NotNull
+    public String investigation;
+
+    public String findings;
+
     public String diagnosis;
     
-    public long appointmentId;
-
     @WhenCreated
-    public LocalDateTime consultationDateTime;
+    public LocalDate consultationDate;
 
     public static Finder find = new Finder<Long, Consultation>(Consultation.class);
 }

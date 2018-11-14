@@ -3,7 +3,8 @@ export class Consultation {
     public patientId: number;
     public doctorId: number;
     public statement: string;
+    public investigation: string;
+    public findings: string;
     public diagnosis: string;
-    public appointmentId?: number;
-    public consultationDateTime?: string;
+    public consultationDate?: string;
 }

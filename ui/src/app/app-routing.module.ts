@@ -21,6 +21,8 @@ import { RecordsComponent } from './records/records/records.component';
 import { PatientComponent } from './records/patient/patient.component';
 import { RegisterStaffComponent } from './records/register-staff/register-staff.component';
 import { ConsultationMainComponent } from './consultation/consultation-main/consultation-main.component';
+import { NurseComponent } from './nurse/nurse/nurse.component';
+import { NurseMainComponent } from './nurse/nurse-main/nurse-main.component';
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -34,7 +36,7 @@ const routes: Routes = [
 {
   path: 'records',
   component: RecordsComponent,
-  canActivate: [AuthGuard],
+  // canActivate: [AuthGuard],
   children: [
   { path: '', component: RecordsMainComponent },
   { path: 'patients', component: PatientComponent },
@@ -50,7 +52,7 @@ const routes: Routes = [
 {
   path: 'consultation',
   component: ConsultationComponent,
-  canActivate: [AuthGuard],
+  // canActivate: [AuthGuard],
   children: [
   { path: '', component: ConsultationMainComponent },
   ]
@@ -60,7 +62,7 @@ const routes: Routes = [
 {
   path: 'lab',
   component: LabComponent,
-  canActivate: [AuthGuard],
+  // canActivate: [AuthGuard],
   children: [
   // { path: '', component: LabMainComponent },
   { path: '', component: TestRequestComponent },
@@ -75,12 +77,22 @@ const routes: Routes = [
 {
   path: 'pharmacy',
   component: PharmacyComponent,
-  canActivate: [AuthGuard],
+  // canActivate: [AuthGuard],
   children: [
   // { path: '', component: PharmacyMainComponent },
   { path: '', component: PrescriptionsComponent },
   { path: 'prescriptions', component: PrescriptionsComponent },
   // { path: 'records', component: PrescriptionsRecordComponent },
+  ]
+},
+
+// Nurse paths
+{
+  path: 'nurses',
+  component: NurseComponent,
+  // canActivate: [AuthGuard],
+  children: [
+  { path: '', component: NurseMainComponent }
   ]
 },
 

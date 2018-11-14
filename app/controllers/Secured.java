@@ -26,7 +26,7 @@ public class Secured extends Security.Authenticator {
                 Staff staff = Staff.find.byId(uuid);
                 if (staff != null) {
                     ctx.args.put("uuid", uuid);
-                    ctx.args.put("role", staff.role);
+                    ctx.args.put("unit", staff.unit);
                     return uuid.toString();
                 }
             } catch (NumberFormatException e) {

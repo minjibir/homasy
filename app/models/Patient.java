@@ -32,7 +32,7 @@ public class Patient extends Model {
     @NotNull
     public int age;
 
-    public int height;
+    public LocalDate dateBirth;
 
     @NotNull
     public String maritalStatus;

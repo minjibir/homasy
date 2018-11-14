@@ -32,6 +32,8 @@ public class SecurityController extends Controller{
                 HashMap<String, String> tokenObj = new HashMap<String, String>();
                 
                 tokenObj.put("token", token);
+                tokenObj.put("unit", staff.unit);
+                tokenObj.put("username", staff.username);
 
                 return ok(Json.toJson(tokenObj));
             }

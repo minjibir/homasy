@@ -1,52 +1,5 @@
-<app-lab-header></app-lab-header>
-
-<div class="container-fluid">
-  <div class="row">
-
-    <nav class="col-md-2 d-none d-md-block bg-primary sidebar shadow pt-5">
-      <app-lab-side-nav></app-lab-side-nav>
-    </nav>
-
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
+<div class="container">
+  <main role="main">
+    <router-outlet></router-outlet>
+  </main>
 </div>
-
-<!-- Bootstrap core JavaScript
-  ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="../../../../node_modules/jquery/dist/jquery.slim.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../../../node_modules/jquery/dist/jquery.slim.min.js"><\/script>')</script>
-<script src="../../../../node_modules/popper.js/dist/popper.min.js"></script>
-<script src="../../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<script>
-  var ctx = document.getElementById("myChart");
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      datasets: [{
-        data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: false
-          }
-        }]
-      },
-      legend: {
-        display: false,
-      }
-    }
-  });
-</script>

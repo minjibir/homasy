@@ -5,7 +5,7 @@ export class Patient {
     public lastName: string;
     public phoneNumber: string;
     public gender: string;
-    public maritalStatus: string;
     public age: number;
-    public height: number;
+    public dateBirth: string;
+    public maritalStatus: string;
 }

@@ -20,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { EntranceModule } from './entrance/entrance.module';
 import { PharmacyModule } from './pharmacy/pharmacy.module';
 import { LabModule } from './lab/lab.module';
+import { NurseModule } from './nurse/nurse.module';
 import { ConsultationModule } from './consultation/consultation.module';
 import { RecordsModule } from './records/records.module';
 import { LoginComponent } from './login/login.component';
@@ -46,7 +47,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LabModule,
     PharmacyModule,
     ConsultationModule,
-    RecordsModule
+    RecordsModule,
+    NurseModule
   ],
   providers: [
   AuthGuard,
