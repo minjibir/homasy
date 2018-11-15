@@ -130,4 +130,8 @@ addappointment() {
     this.router.navigate(['/records/addappointment', this.consultation.patientId]);
 }
 
+clearTests() {
+  this.testRequestHolder = []
+}
+
 }

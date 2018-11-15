@@ -47,7 +47,7 @@ export class PatientComponent implements OnInit {
   }
 
   updatePatientDetails(patient: Patient) {
-    this.patientService.updatePatient(patient: Patient)
+    this.patientService.updatePatient(patient)
     .subscribe(res=>this.reloadPatients(), err=>console.error(err));
   }
 }

@@ -1,11 +1,8 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 mt-3 pb-2 mb-">
+<!-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 mt-3 pb-2 mb-">
   <h1 class="h2">Patients</h1>
-  <!-- 
+
   <div>
-    <button class="btn btn-sm btn-primary mr-2" (click)="viewPatientDetails()">View Patient's Details</button>
-  </div> -->
-  <div>
-    <button class="btn btn-sm btn-primary mr-2" (click)="addpatient()">Register Patient</button>
+    <button class="btn btn-sm btn-primary mr-2" (click)="addvital()">Register Patient</button>
   </div>
 </div>
 
@@ -13,7 +10,7 @@
 
   <div class="row py-3 mx-md-0">
     <form class="form-inline">
-      <input class="form-control mr-2" type="text" placeholder="Search patient" aria-label="Search">
+      <input class="form-control mr-2" type="text" placeholder="Search vital" aria-label="Search">
       <button class="btn btn-outline-primary" type="submit">Search</button>
     </form>
   </div>
@@ -32,16 +29,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let patient of patients">
-        <td>{{patient.patientId}}</td>
-        <td>{{patient.firstName}}</td>
-        <td>{{patient.lastName}}</td>
-        <td>{{patient.gender}}</td>
-        <td>{{patient.age}}</td>
-        <td>{{patient.phoneNumber}}</td>
-        <td><button class="btn btn-block btn-sm btn-outline-primary" (click)="viewPatientDetails(patient.patientId)">View</button></td>
-        <td><button class="btn btn-block btn-sm btn-outline-primary" (click)="addappointment(patient.patientId)">Make</button></td>
+      <tr *ngFor="let vital of vitals">
+        <td>{{vital.vitalId}}</td>
+        <td>{{vital.firstName}}</td>
+        <td>{{vital.lastName}}</td>
+        <td>{{vital.gender}}</td>
+        <td>{{vital.age}}</td>
+        <td>{{vital.phoneNumber}}</td>
+        <td><button class="btn btn-block btn-sm btn-outline-primary" (click)="viewPatientDetails(vital.vitalId)">View</button></td>
+        <td><button class="btn btn-block btn-sm btn-outline-primary" (click)="addappointment(vital.vitalId)">Make</button></td>
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
