@@ -43,10 +43,12 @@ export class StaffListComponent implements OnInit {
 	}
 
 	deleteStaff(staffId: number) {
-		this.staffService.deleteStaff(staffId)
-		.subscribe(
-			//res => this.loadStaffs(),
-			err => console.error(err));
+		if(confirm("Are you sure you want to delete this staff?")) {
+			this.staffService.deleteStaff(staffId)
+			.subscribe(
+				res => this.loadStaffs(),
+				err => console.error(err));
+		}
 	}
 
 }

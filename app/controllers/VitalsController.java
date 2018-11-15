@@ -13,7 +13,7 @@ import java.util.UUID;
 import models.Vitals;
 
 
-// @Security.Authenticated(Secured.class)
+ @Security.Authenticated(Secured.class)
 public class VitalsController extends Controller {
 
     @BodyParser.Of(BodyParser.Json.class)

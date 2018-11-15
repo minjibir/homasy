@@ -42,7 +42,7 @@ export class RegisterStaffComponent implements OnInit {
           username: [null, [Validators.required, Validators.minLength(6)]],
           password: [null, [Validators.required, Validators.minLength(6)]]
         });
-        confirmPassword = '';
+        this.confirmPassword = '';
       },
       err => {
         this.response = "Error: Make sure all fields are filled and correct.";

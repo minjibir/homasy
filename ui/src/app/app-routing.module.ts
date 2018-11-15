@@ -42,7 +42,7 @@ const routes: Routes = [
 {
   path: 'records',
   component: RecordsComponent,
-  // canActivate: [AuthGuard, RecordsGuard],
+  canActivate: [AuthGuard, RecordsGuard],
   children: [
   { path: '', component: RecordsMainComponent },
   { path: 'patients', component: PatientComponent },
@@ -59,7 +59,7 @@ const routes: Routes = [
 {
   path: 'consultation',
   component: ConsultationComponent,
-  // canActivate: [AuthGuard, ConsultationGuard],
+  canActivate: [AuthGuard, ConsultationGuard],
   children: [
   { path: '', component: ConsultationMainComponent },
   ]
@@ -69,7 +69,7 @@ const routes: Routes = [
 {
   path: 'lab',
   component: LabComponent,
-  // canActivate: [AuthGuard, LabGuard],
+  canActivate: [AuthGuard, LabGuard],
   children: [
   // { path: '', component: LabMainComponent },
   { path: '', component: TestRequestComponent },
@@ -84,7 +84,7 @@ const routes: Routes = [
 {
   path: 'pharmacy',
   component: PharmacyComponent,
-  // canActivate: [AuthGuard, PharmacyGuard],
+  canActivate: [AuthGuard, PharmacyGuard],
   children: [
   // { path: '', component: PharmacyMainComponent },
   { path: '', component: PrescriptionsComponent },
@@ -97,7 +97,7 @@ const routes: Routes = [
 {
   path: 'nurse',
   component: NurseComponent,
-  // canActivate: [AuthGuard, NurseGuard],
+  canActivate: [AuthGuard, NurseGuard],
   children: [
   { path: '', component: NurseMainComponent }
   ]

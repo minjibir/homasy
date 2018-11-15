@@ -11,6 +11,7 @@ import { User } from './user';
 export class LoginComponent implements OnInit {
 
 	user = new User();
+	response: any;
 
 	constructor(private authService: AuthService, private router: Router) { }
 

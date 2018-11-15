@@ -11,7 +11,7 @@ import play.mvc.Security;
 import models.Consultation;
 
 
-// @Security.Authenticated(Secured.class)
+ @Security.Authenticated(Secured.class)
 public class ConsultationController extends Controller {
 
     @BodyParser.Of(BodyParser.Json.class)

@@ -11,7 +11,7 @@ import play.mvc.Security;
 import models.Appointment;
 import play.mvc.Results;
 
-// @Security.Authenticated(Secured.class)
+ @Security.Authenticated(Secured.class)
 public class AppointmentController extends Controller {
 
     @BodyParser.Of(BodyParser.Json.class)

@@ -8,11 +8,11 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 
-import java.util.UUID;
+import java.util.HashMap;
 
 import models.Staff;
 
-// @Security.Authenticated(Secured.class)
+ @Security.Authenticated(Secured.class)
 public class StaffController extends Controller {
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -50,9 +50,11 @@ public class StaffController extends Controller {
 
     public Result deleteStaff(Long id) {
         Staff staff = Staff.find.byId(id);
-        if(staff != null && staff != )
-        if (Staff.find.byId(id).delete()) {
-            return ok(Json.toJson("Deleted!"));
+        if (staff != null && staff.username != null) {
+            staff.delete();
+            HashMap<String, String> response = new HashMap<>();
+            response.put("response", "deleted");
+            return ok(Json.toJson(response));
         }
 
         return notFound(Json.toJson("Not found!"));

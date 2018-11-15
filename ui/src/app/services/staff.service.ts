@@ -25,6 +25,6 @@ export class StaffService {
   }
 
   deleteStaff(staffId: number): Observable<any> {
-    return this.http.delete(url, staffId);
+    return this.http.delete<any>(url + '/' + staffId);
   }
 }
