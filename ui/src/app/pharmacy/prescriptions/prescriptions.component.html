@@ -28,7 +28,7 @@
         <td>{{prescription.patientId}}</td>
         <td>{{prescription.prescriptionContent}}</td>
         <td>{{prescription.prescriptionDate}}</td>
-        <td><input type="text" class="form-control" [(ngModel)]="prescription.available" name="available" id="available" placeholder="Available medications here"></td>
+        <td><textarea type="text" class="form-control" [(ngModel)]="prescription.available" name="available" id="available" placeholder="Available medications here"></textarea></td>
         <td><button class="btn btn-sm-outline btn-primary" (click)="markDone(prescription)">Done</button></td>
       </tr>
     </tbody>

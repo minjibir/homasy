@@ -21,9 +21,12 @@ export class NurseMainComponent implements OnInit {
 	ngOnInit() {
 		this.vitalsService
 		.getVitals()
-		.subscribe(
-			res => this.vitals = res,
-			err => console.error(err)
-			);
+		.subscribe(res => this.vitals = res, err => console.error(err));
+	}
+
+	save(vitals: Vitals) {
+		this.vitalsService
+		.updateVitals(vitals)
+		.subscribe(res => console.info('success'), err => console.error(err));
 	}
 }

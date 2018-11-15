@@ -23,4 +23,8 @@ export class VitalsService {
   saveVitals(vitals: Vitals): Observable<Vitals> {
     return this.http.post<Vitals>(url, vitals);
   }
+
+  updateVitals(vitals: Vitals): Observable<Vitals> {
+    return this.http.put<Vitals>(url, vitals);
+  }
 }

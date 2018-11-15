@@ -7,6 +7,7 @@ import io.ebean.annotation.WhenCreated;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -32,7 +33,15 @@ public class Consultation extends Model {
     public String diagnosis;
     
     @WhenCreated
-    public LocalDate consultationDate;
+    public LocalDateTime consultationDate;
 
     public static Finder find = new Finder<Long, Consultation>(Consultation.class);
+
+    public static List<Consultation> findByPatient(Long patientId) {
+        return Consultation.find
+        .query()
+        .where()
+        .eq("patient_id", patientId)
+        .findList();
+    }
 }

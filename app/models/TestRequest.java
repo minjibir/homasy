@@ -38,4 +38,11 @@ public class TestRequest extends Model {
 
     public static Finder<Long, TestRequest> find = new Finder<Long, TestRequest>(TestRequest.class);
 
+    public static List<TestRequest> findByPatient(Long patientId) {
+        return TestRequest.find
+        .query()
+        .where()
+        .eq("patient_id", patientId)
+        .findList();
+    }
 }

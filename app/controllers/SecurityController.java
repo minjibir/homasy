@@ -48,7 +48,7 @@ public class SecurityController extends Controller{
 
         iStaff.firstName = "Jabir";
         iStaff.lastName = "Minjibir";
-        iStaff.role = "admin";
+        iStaff.unit = "admin";
         iStaff.username = "jabyte";
         iStaff.password = "Com.Cyapex/OAGF";
 
@@ -57,6 +57,11 @@ public class SecurityController extends Controller{
         iStaff.username = "jabyte";
 
         return created(Json.toJson(iStaff));
+    }
+
+    public Result verify() {
+
+        return ok(Json.toJson("true"));
     }
 
     @Security.Authenticated

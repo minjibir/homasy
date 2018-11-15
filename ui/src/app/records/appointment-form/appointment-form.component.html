@@ -4,6 +4,11 @@
 
       <h4 class="text-center mb-5">NEW APPOINTMENT</h4>
 
+
+      <div *ngIf="response" class="alert alert-info text-center font-weight-bold">
+        {{response}}
+      </div>
+
       <div class="invalid-feedback text-center">
         <p class=" text-warning"></p>
       </div>

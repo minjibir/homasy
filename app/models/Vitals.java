@@ -2,7 +2,7 @@ package models;
 
 import io.ebean.Finder;
 import io.ebean.Model;
-import io.ebean.annotation.WhenCreated;
+import io.ebean.annotation.WhenModified;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -10,7 +10,9 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Optional;
+import java.time.LocalDateTime;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "vitals")
@@ -32,16 +34,16 @@ public class Vitals extends Model {
 
     public int height;
 
-    @WhenCreated
-    public LocalDate dateTaken;
+    @WhenModified
+    public LocalDateTime dateTaken;
 
     public static Finder<Long, Vitals> find = new Finder<>(Vitals.class);
 
-    public static Optional<Vitals> findByPatient(Long patientId) {
+    public static List<Vitals> findByPatient(Long patientId) {
         return Vitals.find
         .query()
         .where()
         .eq("patient_id", patientId)
-        .findOneOrEmpty();
+        .findList();
     }
 }

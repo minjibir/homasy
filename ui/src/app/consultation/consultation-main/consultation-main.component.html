@@ -3,7 +3,12 @@
 
 </div>
 
+
 <div class="container mb-5">
+  <div *ngIf="response" class="alert alert-info text-center font-weight-bold my-2">
+    {{response}}
+  </div>
+
   <form class="card bg-light shadow p-5 border border-secondary">
 
     <div class="form-inline mb-5">

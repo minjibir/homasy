@@ -15,6 +15,8 @@ export class RegisterStaffComponent implements OnInit {
   staffFormGroup: FormGroup;
   confirmPassword: string;
 
+  response: any;
+
   constructor(private staffService: StaffService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -22,8 +24,8 @@ export class RegisterStaffComponent implements OnInit {
       firstName: [null, [Validators.required, Validators.minLength(3)]],
       lastName: [null, [Validators.required, Validators.minLength(3)]],
       unit: [null, [Validators.required]],
-      username: [null, [Validators.required, Validators.minLength(8)]],
-      password: [null, [Validators.required, Validators.minLength(8)]]
+      username: [null, [Validators.required, Validators.minLength(6)]],
+      password: [null, [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -32,13 +34,19 @@ export class RegisterStaffComponent implements OnInit {
     .registerStaff(this.staffFormGroup.value)
     .subscribe(
       (res: Staff) => {
-        this.staff = res
-        console.info(res)
+        this.response = "Staff successfully registered!";
+        this.staffFormGroup = this.formBuilder.group({
+          firstName: [null, [Validators.required, Validators.minLength(3)]],
+          lastName: [null, [Validators.required, Validators.minLength(3)]],
+          unit: [null, [Validators.required]],
+          username: [null, [Validators.required, Validators.minLength(6)]],
+          password: [null, [Validators.required, Validators.minLength(6)]]
+        });
+        confirmPassword = '';
       },
       err => {
-        console.error(err);
-      }
-      );
+        this.response = "Error: Make sure all fields are filled and correct.";
+      });
   }
 
   get password() {

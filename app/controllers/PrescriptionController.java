@@ -13,7 +13,7 @@ import java.util.UUID;
 import models.Prescription;
 
 
-@Security.Authenticated(Secured.class)
+// @Security.Authenticated(Secured.class)
 public class PrescriptionController extends Controller {
 
     @BodyParser.Of(BodyParser.Json.class)

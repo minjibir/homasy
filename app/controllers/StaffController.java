@@ -12,7 +12,7 @@ import java.util.UUID;
 
 import models.Staff;
 
-@Security.Authenticated(Secured.class)
+// @Security.Authenticated(Secured.class)
 public class StaffController extends Controller {
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -25,17 +25,14 @@ public class StaffController extends Controller {
         return created(Json.toJson(iStaff));
     }
 
-    @Security.Authenticated(Secured.class)
     public Result getAllStaffs() {
         return ok(Json.toJson(Staff.find.all()));
     }
 
-    @Security.Authenticated(Secured.class)
     public Result getStaffById(Long id) {
         return ok(Json.toJson(Staff.find.byId(id)));
     }
 
-    @Security.Authenticated(Secured.class)
     @BodyParser.Of(BodyParser.Json.class)
     public Result updateStaff() {
         JsonNode jsonNode = request().body().asJson();
@@ -51,9 +48,10 @@ public class StaffController extends Controller {
         return notFound(Json.toJson("Not found"));
     }
 
-    @Security.Authenticated(Secured.class)
     public Result deleteStaff(Long id) {
-        if (Staff.find.byId(id) != null && Staff.find.byId(id).delete()) {
+        Staff staff = Staff.find.byId(id);
+        if(staff != null && staff != )
+        if (Staff.find.byId(id).delete()) {
             return ok(Json.toJson("Deleted!"));
         }
 

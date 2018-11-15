@@ -32,7 +32,7 @@
         <td>{{testRequest.patientId}}</td>
         <td>{{testRequest.testsRequested}}</td>
         <td>{{testRequest.dateTimeRequested}}</td>
-        <td><input type="test" [(ngModel)]="testRequest.testResult" name="testResult" class="form-control"></td>
+        <td><textarea [(ngModel)]="testRequest.testResult" name="testResult" class="form-control"></textarea></td>
         <td><button class="btn btn-sm btn-outline-primary" (click)="updateResult(testRequest)">Done</button></td>
       </tr>
     </tbody>

@@ -20,16 +20,16 @@ export class AddPatientComponent implements OnInit {
 
   registerPatient() {
     this.patientService
-      .registerPatient(this.patient)
-      .subscribe(
-        (res: Patient) => {
-          this.response = "Patient successfully registered."
-          this.patient = null;
-        },
-        err => {
-          console.error(err);
-          this.response = "Error occured.";
-        }
+    .registerPatient(this.patient)
+    .subscribe(
+      (res: Patient) => {
+        this.response = "Patient successfully registered."
+        this.patient = new Patient();
+      },
+      err => {
+        console.error(err);
+        this.response = "Problem occured. Make sure all fields are correct";
+      }
       );
   }
 

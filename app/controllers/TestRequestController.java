@@ -13,7 +13,7 @@ import java.util.UUID;
 import models.TestRequest;
 
 
-@Security.Authenticated(Secured.class)
+// @Security.Authenticated(Secured.class)
 public class TestRequestController extends Controller {
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -30,8 +30,12 @@ public class TestRequestController extends Controller {
         return ok(Json.toJson(TestRequest.find.all()));
     }
 
-    public Result getTestRequest(Long testRequestId) {
-        return ok(Json.toJson(TestRequest.find.byId((testRequestId))));
+    public Result getTestRequest(Long patientId) {
+        return ok(Json.toJson(TestRequest.findByPatient((patientId))));
+    }
+
+    public Result getTestRequestByPatient(Long patientId) {
+        return ok(Json.toJson(TestRequest.findByPatient((patientId))));
     }
 
     @BodyParser.Of(BodyParser.Json.class)

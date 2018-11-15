@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from './patient.service';
+import { Patient } from './patient';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,19 +16,22 @@ export class PatientComponent implements OnInit {
   constructor(
     private patientService: PatientService,
     private router: Router,
-  ) { }
+    ) { }
 
   ngOnInit() {
+    this.reloadPatients();
+  }
+
+  reloadPatients() {
     this.patientService
-      .getPatients()
-      .subscribe(
-        res => {
-          this.patients = res;
-        },
-        err => {
-          console.log(err)
-        }
-      );
+    .getPatients()
+    .subscribe(
+      res => {
+        this.patients = res;
+      },
+      err => {
+        console.log(err)
+      });
   }
 
   addpatient() {
@@ -42,4 +46,8 @@ export class PatientComponent implements OnInit {
     this.router.navigate(['/records/addappointment', id]);
   }
 
+  updatePatientDetails(patient: Patient) {
+    this.patientService.updatePatient(patient: Patient)
+    .subscribe(res=>this.reloadPatients(), err=>console.error(err));
+  }
 }

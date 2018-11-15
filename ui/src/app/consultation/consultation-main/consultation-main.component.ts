@@ -27,6 +27,8 @@ export class ConsultationMainComponent implements OnInit {
 
   testRequestHolder: string[];
 
+  response: any;
+
   constructor(
     private router: Router,
     private consultationService: ConsultationService,
@@ -43,7 +45,7 @@ export class ConsultationMainComponent implements OnInit {
     if (
       this.consultation.patientId !== undefined &&
       this.consultation.diagnosis !== null &&
-      this.consultation.statement !== null &&
+      this.consultation.complaint !== null &&
       this.prescription.prescriptionContent !== null
       ) {
 
@@ -64,8 +66,14 @@ export class ConsultationMainComponent implements OnInit {
         this.savePrescription();
         this.requestTest();
 
+        this.response = "Record successfully saved.";
+        this.consultation = new Consultation();
+
       },
-      err => { console.error(err)});
+      err => { 
+        console.error(err)
+        this.response = "Error: Check all inputs and try again.";
+      });
   }
 }
 
@@ -84,7 +92,7 @@ savePrescription() {
   .addPrescription(this.prescription)
   .subscribe(
     (res: Prescription) => {
-      this.prescription = res;
+      this.prescription = new Prescription();
     },
     err => {
       console.error(err);
@@ -103,12 +111,11 @@ requestTest() {
   .makeTestRequest(this.testRequest)
   .subscribe(
     (res: TestRequest) => {
-      this.testRequest = res;
+      this.testRequest = new TestRequest();
       console.info(res)
+      this.testRequestHolder = [];
     },
-    err => {
-      console.error(err);
-    });
+    err => console.error(err));
 }
 }
 

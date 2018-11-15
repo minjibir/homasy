@@ -23,4 +23,8 @@ export class StaffService {
   updateStaff(staff: Staff): Observable<Staff> {
     return this.http.put<Staff>(url, staff);
   }
+
+  deleteStaff(staffId: number): Observable<any> {
+    return this.http.delete(url, staffId);
+  }
 }

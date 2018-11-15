@@ -9,7 +9,7 @@ import play.mvc.Result;
 import play.mvc.Security;
 
 
-@Security.Authenticated(Secured.class)
+// @Security.Authenticated(Secured.class)
 public class PatientController extends Controller {
     public static Result deleteAppointment(Long id) {
         return play.mvc.Results.TODO;
@@ -42,8 +42,19 @@ public class PatientController extends Controller {
         return ok(Json.toJson(Patient.find.all()));
     }
 
+    @BodyParser.Of(BodyParser.Json.class)
     public Result updatePatient() {
-        return play.mvc.Results.TODO;
+        JsonNode jsonNode = request().body().asJson();
+        Patient iPatient;
+
+        iPatient = Json.fromJson(jsonNode, Patient.class);
+
+        if (Patient.find.byId(iPatient.patientId) != null) {
+            iPatient.update();
+            return ok(Json.toJson(iPatient));
+        }
+
+        return notFound(Json.toJson("Not found"));
     }
 
     public Result deletePatient(Long id) {

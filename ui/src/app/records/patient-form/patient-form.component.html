@@ -48,19 +48,19 @@
         <div class="form-row">
           <div class="col-md-6 mb-3">
             <label for="gender">Gender</label>
-            <select class="form-control" name="gender" id="gender" [(ngModel)]="patient.gender" placeholder="Gender">
-              <option [ngValue]="Male">Male</option>
-              <option [ngValue]="Female">Female</option>
+            <select class="form-control" name="gender" id="gender" [(ngModel)]="patient.gender" placeholder="Gender" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
             </select>
           </div>
 
           <div class="col-md-6 mb-3">
             <label for="maritalStatus">Marital Status</label>
             <select class="form-control" name="maritalStatus" id="maritalStatus" [(ngModel)]="patient.maritalStatus" placeholder="Marital Status" required>
-              <option [ngValue]="Single">Single</option>
-              <option [ngValue]="Married">Married</option>
-              <option [ngValue]="Divorced">Divorced</option>
-              <option [ngValue]="Widow">Widow</option>
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+              <option value="Divorced">Divorced</option>
+              <option value="Widow">Widow</option>
             </select>
             
           </div>

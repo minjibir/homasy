@@ -17,7 +17,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class PatientDetailsComponent implements OnInit {
 
   patient = new Patient();
-  consultations: Consultation[];
+  cons: Consultation[];
   patientId: number;
 
   tests: TestRequest[];
@@ -32,17 +32,14 @@ export class PatientDetailsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.route.paramMap
-    .subscribe(
+    this.route.paramMap.subscribe(
       (params: ParamMap) => {
-        this.patientId = parseInt(params.get('id')
-          )
+        this.patientId = parseInt(params.get('id'))
+        this.getPatient();
+        this.getConsultationsRecord();
+        this.getVitals();
+        this.getTestResult();
       });
-
-    this.getPatient();
-    this.getConsultationsRecord();
-    this.getVitals(this.patientId);
-    this.getTestResult(this.patientId);
   }
 
   getPatient() {
@@ -62,30 +59,31 @@ export class PatientDetailsComponent implements OnInit {
     this.consultationService
     .getConsultationsByPatient(this.patientId)
     .subscribe(
-      res => {
-        this.consultations = res;
+      (res: Consultation[]) => {
+        this.cons = res;
       },
       err => {
-        console.log(err)
-      }
-      );
+        console.error(err)
+      });
   }
 
-  getVitals(patientId: number) {
-    this.vitalsService.getVitalsByPatientId(patientId)
+  getVitals() {
+    this.vitalsService.getVitalsByPatientId(this.patientId)
     .subscribe(
       (res: Vitals[]) => {
         this.vitals = res
+        // console.info(this.vitals);
       },
       err => console.error(err)
       );
   }
 
-  getTestResult(patientId: number) {
-    this.testService.getTestRequestsByPatient(patientId)
+  getTestResult() {
+    this.testService.getTestRequestsByPatient(this.patientId)
     .subscribe(
       (res: TestRequest[]) => {
-        this.tests = res
+        this.tests = res;
+        // console.info(this.tests);
       },
       err => console.error(err)
       );

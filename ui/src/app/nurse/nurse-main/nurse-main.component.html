@@ -8,8 +8,7 @@
 
     <thead>
       <tr>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
+        <th scope="col">Patient ID</th>
         <th scope="col">Blood Pressure</th>
         <th scope="col">Pulse Rate</th>
         <th scope="col">Temperature</th>
@@ -21,13 +20,8 @@
     </thead>
 
     <tbody>
-
-      <tr *ngFor="let patient of patients">
-
-
-
-        <th><input type="text" class="form-control" [(ngModel)]="vital.vitalId"></th>
-        <th><input type="text" class="form-control" [(ngModel)]="vital.patientId"></th>
+      <tr *ngFor="let vital of vitals">
+        <th>{{vital.patientId}}</th>
         <th><input type="text" class="form-control" [(ngModel)]="vital.bloodPressure"></th>
         <th><input type="text" class="form-control" [(ngModel)]="vital.pulseRate"></th>
         <th><input type="text" class="form-control" [(ngModel)]="vital.temperature"></th>
@@ -36,18 +30,6 @@
         <th>{{vital.dateTaken}}</th>
         <td><button class="btn btn-block btn-sm btn-outline-primary" (click)="save(vital)">Save</button></td>
       </tr>
-
-      <!-- <tr *ngFor="let vital of vitals">
-        <th><input type="text" class="form-control" [(ngModel)]="vital.vitalId"></th>
-        <th><input type="text" class="form-control" [(ngModel)]="vital.patientId"></th>
-        <th><input type="text" class="form-control" [(ngModel)]="vital.bloodPressure"></th>
-        <th><input type="text" class="form-control" [(ngModel)]="vital.pulseRate"></th>
-        <th><input type="text" class="form-control" [(ngModel)]="vital.temperature"></th>
-        <th><input type="text" class="form-control" [(ngModel)]="vital.weight"></th>
-        <th><input type="text" class="form-control" [(ngModel)]="vital.height"></th>
-        <th>{{vital.dateTaken}}</th>
-        <td><button class="btn btn-block btn-sm btn-outline-primary" (click)="save(vital)">Save</button></td>
-      </tr> -->
     </tbody>
   </table>
 </div>

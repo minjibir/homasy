@@ -23,4 +23,8 @@ export class PatientService {
   registerPatient(patient: Patient): Observable<Patient> {
     return this.http.post<Patient>(url, patient);
   }
+
+  updatePatient(patient: Patient): Observable<Patient> {
+    return this.http.put<Patient>(url, patient);
+  }
 }

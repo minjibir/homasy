@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Optional;
+import java.util.List;
 
 @Entity
 @Table(name = "staff")

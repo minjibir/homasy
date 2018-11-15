@@ -17,9 +17,8 @@ export class ConsultationService {
     return this.http.post<Consultation>(url, consultation)
   }
 
-  getConsultationsByPatient(patientId: number): Observable<any> {
-    return this.http.get<any>(url + '/' + patientId);
+  getConsultationsByPatient(patientId: number): Observable<Consultation[]> {
+    return this.http.get<Consultation[]>(url + '/' + patientId);
   }
-
-
+  
 }

@@ -20,13 +20,13 @@
 		</thead>
 		<tbody>
 			<tr *ngFor="let staff of staffs">
-				<td><input type="text" class="form-control" [(ngModel)]="staff.firstName"></td>
-				<td><input type="text" class="form-control" [(ngModel)]="staff.lastName"></td>
-				<td><input type="text" class="form-control" [(ngModel)]="staff.unit"></td>
-				<td><input type="text" class="form-control" [(ngModel)]="staff.username"></td>
-				<td><input type="password" class="form-control" [(ngModel)]="staff.password"></td>
+				<td>{{staff.firstName}}</td>
+				<td>{{staff.lastName}}</td>
+				<td>{{staff.unit}}</td>
+				<td>{{staff.username}}</td>
+				<td>**********</td>
 				<td>
-					<button class="btn btn-block btn-sm btn-outline-primary" (click)="updateStaff(staff)">Update</button>
+					<button class="btn btn-sm btn-danger" (click)="deleteStaff(staff.uuid)">Delet</button>
 				</td>
 			</tr>
 		</tbody>

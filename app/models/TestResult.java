@@ -7,6 +7,7 @@ import io.ebean.annotation.WhenCreated;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class TestResult extends Model {
     @Id

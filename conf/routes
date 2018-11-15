@@ -21,10 +21,11 @@ GET           /api/consultations/:pId        controllers.ConsultationController.
 POST          /api/consultations             controllers.ConsultationController.saveConsultation
 PUT           /api/consultations             controllers.ConsultationController.updateConsultation
 
-GET           /api/staffs/:pId               controllers.StaffController.getStaffById(pId: Long)
+GET           /api/staffs/:sId               controllers.StaffController.getStaffById(sId: Long)
 GET           /api/staffs                    controllers.StaffController.getAllStaffs
 POST          /api/staffs                    controllers.StaffController.createStaff
 PUT           /api/staffs                    controllers.StaffController.updateStaff
+DELETE        /api/staffs/:sId               controllers.StaffController.deleteStaff(sId: Long)
 
 GET           /api/prescriptions/:pId        controllers.PrescriptionController.getPrescription(pId: Long)
 GET           /api/prescriptions             controllers.PrescriptionController.getAllPrescriptions
@@ -36,13 +37,19 @@ GET           /api/testresults                controllers.TestResultController.g
 POST          /api/testresults                controllers.TestResultController.createTestResult
 PUT           /api/testresults                controllers.TestResultController.updateTestResult
 
-GET           /api/testrequests/:pId          controllers.TestRequestController.getTestRequest(pId: Long)
+GET           /api/testrequests/:pId          controllers.TestRequestController.getTestRequestByPatient(pId: Long)
 GET           /api/testrequests               controllers.TestRequestController.getAllTestRequests
 POST          /api/testrequests               controllers.TestRequestController.createTestRequest
 PUT           /api/testrequests               controllers.TestRequestController.updateTestRequest
 
+GET           /api/vitals/:pId          	  controllers.VitalsController.getAllVitalsByPatientId(pId: Long)
+GET           /api/vitals               	  controllers.VitalsController.getAllVitals
+POST          /api/vitals               	  controllers.VitalsController.createVitals
+PUT           /api/vitals               	  controllers.VitalsController.updateVitals
+
 # Login controller
 POST          /api/login                      controllers.SecurityController.login
+POST          /api/verify                     controllers.SecurityController.verify
 POST          /admin/init                     controllers.SecurityController.init
 
 

@@ -26,10 +26,13 @@ export class LoginComponent implements OnInit {
 				sessionStorage.setItem('unit', res.unit)
 				sessionStorage.setItem('username', res.username)
 				
-				this.router.navigate(['/'+res.unit.toString()])
+				this.router.navigate(['/'+res.unit.toString()]);
+				this.user = new User();
 			},
-			err => console.error(err)
-			);
+			err => {
+				console.error(err)
+				this.response = "Invalid username and/or password."
+			});
 	}
 
 }

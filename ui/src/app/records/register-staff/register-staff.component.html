@@ -1,36 +1,36 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="card col-md-8 p-5 bg-light shadow">
-
+      <div *ngIf="response" class="alert alert-info text-center font-weight-bold">
+        {{response}}
+      </div>
+      
       <form [formGroup]="staffFormGroup" (ngSubmit)="registerStaff()">
         <div class="form-row mb-5">
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="firstName" placeholder="First name">
-            <div class="valid-feedback">
-              Looks good!
-            </div>
           </div>
 
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="lastName" placeholder="Last name">
-            <div class="valid-feedback">
-              Looks good!
-            </div>
           </div>
         </div>
 
         <div class="form-row mb-5">
           <div class="col-md-6">
             <input type="text" class="form-control" formControlName="username" placeholder="Username">
+            <span class="small">
+              Must be unique 6 characters.
+            </span>
           </div>
 
           <div class="col-md-6">
             <select class="form-control" formControlName="unit">
-              <option [ngValue]="null" selected>--Select Role--</option>
-              <option [ngValue]="records">records</option>
-              <option [ngValue]="consultation">consultation</option>
-              <option [ngValue]="pharmacy">pharmacy</option>
-              <option [ngValue]="lab">lab</option>
+              <option value="null" selected>--Select Role--</option>
+              <option value="records">records</option>
+              <option value="consultation">consultation</option>
+              <option value="pharmacy">pharmacy</option>
+              <option value="lab">lab</option>
             </select>
           </div>
         </div>
@@ -38,19 +38,19 @@
         <div class="form-row mb-5">
           <div class="col-md-6">
             <input type="password" class="form-control" formControlName="password" placeholder="Password">
-            <div class="valid-feedback">
-              Looks good!
-            </div>
+            <span class="small">
+              Must be a minimum of 6 characters.
+            </span>
           </div>
 
           <div class="col-md-6">
-            <input type="password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Confirm Password">
-            <div class="valid-feedback">
-              Looks good!
-            </div>
+            <input type="password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Confirm Password" />
+            <span class="small">
+              Must be thesame with password.
+            </span>
           </div>
         </div>
-        <input type="submit" [hidden]="!staffFormGroup.valid" [disabled]="password!=confirmPassword" class="btn btn-primary px-5" value="Register">
+        <input type="submit" [disabled]="!staffFormGroup.valid || password != confirmPassword" class="btn btn-primary px-5" value="Register">
       </form>
 
     </div>

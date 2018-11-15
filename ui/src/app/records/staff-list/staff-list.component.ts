@@ -19,6 +19,10 @@ export class StaffListComponent implements OnInit {
 		) { }
 
 	ngOnInit() {
+		this.loadStaffs();
+	}
+
+	loadStaffs() {
 		this.staffService
 		.getStaffs()
 		.subscribe(
@@ -27,8 +31,7 @@ export class StaffListComponent implements OnInit {
 			},
 			err => {
 				console.log(err)
-			}
-			);
+			});
 	}
 
 	updateStaff(staff: Staff) {
@@ -37,6 +40,13 @@ export class StaffListComponent implements OnInit {
 			(res: Staff) => {},
 			err => console.error(err)
 			);
+	}
+
+	deleteStaff(staffId: number) {
+		this.staffService.deleteStaff(staffId)
+		.subscribe(
+			//res => this.loadStaffs(),
+			err => console.error(err));
 	}
 
 }
